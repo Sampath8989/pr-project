@@ -1,0 +1,2566 @@
+{
+  "metrics": {
+    "num_files": 91,
+    "num_correct": 40,
+    "accuracy": 0.43956043956043955,
+    "mean_confidence": 0.43931704788639603,
+    "ece": 0.023660690743921697,
+    "mce": 0.04152247448343449,
+    "brier_multiclass": 0.669366527037425,
+    "brier_multiclass_norm": 0.3346832635187125,
+    "brier_top_label": 0.23610526859203118,
+    "baseline_a1": 40
+  },
+  "bins": [
+    {
+      "lo": 0.0,
+      "hi": 0.1,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    },
+    {
+      "lo": 0.1,
+      "hi": 0.2,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    },
+    {
+      "lo": 0.2,
+      "hi": 0.3,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    },
+    {
+      "lo": 0.3,
+      "hi": 0.4,
+      "n": 53,
+      "conf_sum": 20.065487107679456,
+      "correct": 19,
+      "avg_conf": 0.3785940963713105,
+      "accuracy": 0.3584905660377358
+    },
+    {
+      "lo": 0.4,
+      "hi": 0.5,
+      "n": 22,
+      "conf_sum": 10.576723841717534,
+      "correct": 11,
+      "avg_conf": 0.4807601746235243,
+      "accuracy": 0.5
+    },
+    {
+      "lo": 0.5,
+      "hi": 0.6,
+      "n": 16,
+      "conf_sum": 9.335640408265048,
+      "correct": 10,
+      "avg_conf": 0.5834775255165655,
+      "accuracy": 0.625
+    },
+    {
+      "lo": 0.6,
+      "hi": 0.7,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    },
+    {
+      "lo": 0.7,
+      "hi": 0.8,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    },
+    {
+      "lo": 0.8,
+      "hi": 0.9,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    },
+    {
+      "lo": 0.9,
+      "hi": 1.0,
+      "n": 0,
+      "conf_sum": 0.0,
+      "correct": 0,
+      "avg_conf": null,
+      "accuracy": null
+    }
+  ],
+  "predictions": [
+    {
+      "file_name": "Algorithm-Generated/1.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Excel_Expert",
+        "Computer_terminal",
+        "BusinessLogic_Expert",
+        "DataVerification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Excel_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/101.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Tickets_Pricing_Expert",
+        "Computer_terminal",
+        "Budgeting_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Tickets_Pricing_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/102.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Filmography_Expert",
+        "StreamingAvailability_Expert",
+        "IMDB_Ratings_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Filmography_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/103.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Eateries_Expert",
+        "Location-Based_Services_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.483216,
+        "A2": 0.292861,
+        "A3": 0.100397,
+        "A4": 0.145935
+      },
+      "predicted": "A1",
+      "confidence": 0.483216,
+      "actual": "A4",
+      "actual_real": "DataVerification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/104.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "PythonDebugging_Expert",
+        "Computer_terminal",
+        "Validation_Expert",
+        "DebuggingOptimization_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A1",
+      "actual_real": "PythonDebugging_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/105.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Local_Knowledge_Expert",
+        "Computer_terminal",
+        "Fitness_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A4",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/106.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "RealEstate_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "DataAnalysis_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/107.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Genomics_Expert",
+        "Bioinformatics_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A4",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/108.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Corporate_Governance_Expert",
+        "WebServing_Expert",
+        "DataVerification_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.381684,
+        "A2": 0.334856,
+        "A3": 0.144415,
+        "A4": 0.14159
+      },
+      "predicted": "A1",
+      "confidence": 0.381684,
+      "actual": "A1",
+      "actual_real": "Corporate_Governance_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/109.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Geography_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "Grocery_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.483216,
+        "A2": 0.292861,
+        "A3": 0.100397,
+        "A4": 0.145935
+      },
+      "predicted": "A1",
+      "confidence": 0.483216,
+      "actual": "A2",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/11.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Latin_American_Music_Expert",
+        "DataAnalysis_Expert",
+        "InformationVerification_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A3",
+      "actual_real": "InformationVerification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/110.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataCollection_Expert",
+        "DataAnalysis_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A4",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/111.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "ProbabilityTheory_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A2",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/112.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "HistoricalWeatherData_Expert",
+        "Computer_terminal",
+        "Validation_Expert",
+        "Statistics_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A1",
+      "actual_real": "HistoricalWeatherData_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/113.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Hiking_Expert",
+        "Reviews_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A2",
+      "actual_real": "Reviews_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/114.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "RealEstateMarket_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.581803,
+        "A2": 0.131623,
+        "A3": 0.109719,
+        "A4": 0.226
+      },
+      "predicted": "A1",
+      "confidence": 0.581803,
+      "actual": "A2",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/115.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "ProblemSolving_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "ArithmeticProgressions_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/116.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "DataManipulation_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A1",
+      "actual_real": "DataAnalysis_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/117.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "JSON_Expert",
+        "Debugging_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A1",
+      "actual_real": "JSON_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/118.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "WeatherData_Expert",
+        "Statistics_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A2",
+      "actual_real": "Statistics_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/119.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Geometry_Expert",
+        "Computer_terminal",
+        "VerificationExpert",
+        "LocalHistorian_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.475396,
+        "A2": 0.15598,
+        "A3": 0.161261,
+        "A4": 0.218412
+      },
+      "predicted": "A1",
+      "confidence": 0.475396,
+      "actual": "A1",
+      "actual_real": "Geometry_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/120.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Food_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "Vegan_Food_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.482399,
+        "A2": 0.294197,
+        "A3": 0.09451,
+        "A4": 0.228239
+      },
+      "predicted": "A1",
+      "confidence": 0.482399,
+      "actual": "A4",
+      "actual_real": "Vegan_Food_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/121.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "JSON_Expert",
+        "Debugging_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A2",
+      "actual_real": "Debugging_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/122.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "BingAPI_Expert",
+        "Accessibility_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.482399,
+        "A2": 0.294197,
+        "A3": 0.09451,
+        "A4": 0.228239
+      },
+      "predicted": "A1",
+      "confidence": 0.482399,
+      "actual": "A1",
+      "actual_real": "BingAPI_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/123.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Karting_Expert",
+        "Geospatial_Expert",
+        "Computer_terminal",
+        "Paintball_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.471568,
+        "A2": 0.163286,
+        "A3": 0.106757,
+        "A4": 0.226436
+      },
+      "predicted": "A1",
+      "confidence": 0.471568,
+      "actual": "A4",
+      "actual_real": "Paintball_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/13.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "ArtHistory_Expert",
+        "Chinese_Zodiac_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A1",
+      "actual_real": "ArtHistory_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/15.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Boggle_Board_Expert",
+        "Dictionary_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A1",
+      "actual_real": "Boggle_Board_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/16.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Video_Analyst_Expert",
+        "Narration_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A2",
+      "actual_real": "Narration_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/17.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "MarineBiology_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "Statistics_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A4",
+      "actual_real": "Statistics_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/18.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Poetry_Expert",
+        "Python_Expert",
+        "Literature_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.381684,
+        "A2": 0.334856,
+        "A3": 0.144415,
+        "A4": 0.14159
+      },
+      "predicted": "A1",
+      "confidence": 0.381684,
+      "actual": "A1",
+      "actual_real": "Poetry_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/19.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Debugging_Problem_Solving_Expert",
+        "DebuggingTesting_Expert",
+        "Computer_terminal",
+        "Validation_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.586166,
+        "A2": 0.124487,
+        "A3": 0.174907,
+        "A4": 0.138581
+      },
+      "predicted": "A1",
+      "confidence": 0.586166,
+      "actual": "A1",
+      "actual_real": "Debugging_Problem_Solving_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/2.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "Computer_terminal",
+        "Verification_Expert",
+        "Statistics_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A3",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/22.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "PythonDebugging_Expert",
+        "Computer_terminal",
+        "UnitTesting_Expert",
+        "Python_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.489236,
+        "A2": 0.283016,
+        "A3": 0.143767,
+        "A4": 0.220988
+      },
+      "predicted": "A1",
+      "confidence": 0.489236,
+      "actual": "A1",
+      "actual_real": "PythonDebugging_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/23.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Art_Historian_Expert",
+        "Computer_terminal",
+        "Church_Historian_Expert",
+        "DataVerification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.476046,
+        "A2": 0.154739,
+        "A3": 0.170522,
+        "A4": 0.139013
+      },
+      "predicted": "A1",
+      "confidence": 0.476046,
+      "actual": "A3",
+      "actual_real": "Church_Historian_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/25.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "ModelEvaluation_Interpretation_Expert",
+        "Physics_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.483216,
+        "A2": 0.292861,
+        "A3": 0.100397,
+        "A4": 0.145935
+      },
+      "predicted": "A1",
+      "confidence": 0.483216,
+      "actual": "A1",
+      "actual_real": "ModelEvaluation_Interpretation_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/26.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "WomenInComputerScienceHistory_Expert",
+        "DataVerification_Expert",
+        "Computer_terminal",
+        "Statistics_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "WomenInComputerScienceHistory_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/27.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "MarioKart8Deluxe_Expert",
+        "DataVerification_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A2",
+      "actual_real": "DataVerification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/28.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "WebServing_Expert",
+        "Historian_Expert",
+        "DataVerification_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.490407,
+        "A2": 0.2811,
+        "A3": 0.152206,
+        "A4": 0.140821
+      },
+      "predicted": "A1",
+      "confidence": 0.490407,
+      "actual": "A3",
+      "actual_real": "DataVerification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/3.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Python_Expert",
+        "Computer_terminal",
+        "Statistics_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.585533,
+        "A2": 0.125521,
+        "A3": 0.165455,
+        "A4": 0.217795
+      },
+      "predicted": "A1",
+      "confidence": 0.585533,
+      "actual": "A4",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/30.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "AudioProcessing_Expert",
+        "Computer_terminal",
+        "TranscriptionVerification_Expert",
+        "Culinary_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A4",
+      "actual_real": "Culinary_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/31.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "OpenCV_Expert",
+        "Chinese_Political_History_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A4",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/32.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "SpeciesSightingsData_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert",
+        "AlligatorBiology_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.475396,
+        "A2": 0.15598,
+        "A3": 0.161261,
+        "A4": 0.218412
+      },
+      "predicted": "A1",
+      "confidence": 0.475396,
+      "actual": "A1",
+      "actual_real": "SpeciesSightingsData_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/34.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "CSVProcessing_Expert",
+        "Computer_terminal",
+        "Locomotive_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A3",
+      "actual_real": "Locomotive_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/36.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "ImageProcessing_Expert",
+        "Computer_terminal",
+        "ProblemSolving_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.585533,
+        "A2": 0.125521,
+        "A3": 0.165455,
+        "A4": 0.217795
+      },
+      "predicted": "A1",
+      "confidence": 0.585533,
+      "actual": "A3",
+      "actual_real": "ProblemSolving_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/37.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Cubing_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "Geometry_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.471568,
+        "A2": 0.163286,
+        "A3": 0.106757,
+        "A4": 0.226436
+      },
+      "predicted": "A1",
+      "confidence": 0.471568,
+      "actual": "A1",
+      "actual_real": "Cubing_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/39.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "AquaticEcosystems_InvasiveSpecies_Expert",
+        "GIS_DataAnalysis_Expert",
+        "Computer_terminal",
+        "Scientific_Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.489236,
+        "A2": 0.283016,
+        "A3": 0.143767,
+        "A4": 0.220988
+      },
+      "predicted": "A1",
+      "confidence": 0.489236,
+      "actual": "A2",
+      "actual_real": "GIS_DataAnalysis_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/4.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "HawaiiRealEstate_Expert",
+        "Data_Analysis_Expert",
+        "Validation_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "HawaiiRealEstate_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/40.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "NumericalMethods_Expert",
+        "NumericalAlgorithms_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A4",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/42.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DemographicData_Expert",
+        "Verification_Expert",
+        "Computer_terminal",
+        "ProblemSolving_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/43.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "Computer_terminal",
+        "Database_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "DataAnalysis_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/44.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Web_Design_Expert",
+        "WebDevelopment_Expert",
+        "Computer_terminal",
+        "GraphicDesign_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A2",
+      "actual_real": "WebDevelopment_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/45.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataAnalysis_Expert",
+        "PublicationData_Expert",
+        "Computer_terminal",
+        "VerificationExpert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "PublicationData_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/46.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "LogicExpert",
+        "Behavioral_Expert",
+        "Validation_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "Behavioral_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/48.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Geometry_Expert",
+        "Computer_terminal",
+        "Validation_Expert",
+        "MathAnalysis_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.475396,
+        "A2": 0.15598,
+        "A3": 0.161261,
+        "A4": 0.218412
+      },
+      "predicted": "A1",
+      "confidence": 0.475396,
+      "actual": "A1",
+      "actual_real": "Geometry_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/5.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "WebServing_Expert",
+        "Gaming_Awards_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.381684,
+        "A2": 0.334856,
+        "A3": 0.144415,
+        "A4": 0.14159
+      },
+      "predicted": "A1",
+      "confidence": 0.381684,
+      "actual": "A4",
+      "actual_real": "DataVerification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/51.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "PythonDebugging_Expert",
+        "Computer_terminal",
+        "UnitTesting_Expert",
+        "Python_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.489236,
+        "A2": 0.283016,
+        "A3": 0.143767,
+        "A4": 0.220988
+      },
+      "predicted": "A1",
+      "confidence": 0.489236,
+      "actual": "A1",
+      "actual_real": "PythonDebugging_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/52.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "ISBNCheckDigit_Expert",
+        "Computer_terminal",
+        "VerificationExpert",
+        "Python_Programmer_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.374148,
+        "A2": 0.34924,
+        "A3": 0.089361,
+        "A4": 0.228997
+      },
+      "predicted": "A1",
+      "confidence": 0.374148,
+      "actual": "A1",
+      "actual_real": "ISBNCheckDigit_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/54.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Clinical_Trial_Data_Analysis_Expert",
+        "Computer_terminal",
+        "ClinicalTrials_Expert",
+        "Validation_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Clinical_Trial_Data_Analysis_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/56.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "AlgorithmDesign_Expert",
+        "RecyclingRate_Expert",
+        "Computer_terminal",
+        "Validation_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A4",
+      "actual_real": "Validation_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/57.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "TextExtraction_Expert",
+        "Computer_terminal",
+        "Verification_Expert",
+        "DataManipulation_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "TextExtraction_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/59.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataExtraction_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert",
+        "DataAnalysis_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.585533,
+        "A2": 0.125521,
+        "A3": 0.165455,
+        "A4": 0.217795
+      },
+      "predicted": "A1",
+      "confidence": 0.585533,
+      "actual": "A1",
+      "actual_real": "DataExtraction_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/6.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "NorseMythology_Expert",
+        "Literary_Analysis_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "Literary_Analysis_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/60.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "RealityTV_Historian_Expert",
+        "Computer_terminal",
+        "DataAnalysis_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A3",
+      "actual_real": "DataAnalysis_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/63.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "MusicTheory_Expert",
+        "Computer_terminal",
+        "Verification_Expert",
+        "MathAnalysis_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.489236,
+        "A2": 0.283016,
+        "A3": 0.143767,
+        "A4": 0.220988
+      },
+      "predicted": "A1",
+      "confidence": 0.489236,
+      "actual": "A1",
+      "actual_real": "MusicTheory_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/64.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Whitney_Collection_Expert",
+        "MilitaryHistory_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.482399,
+        "A2": 0.294197,
+        "A3": 0.09451,
+        "A4": 0.228239
+      },
+      "predicted": "A1",
+      "confidence": 0.482399,
+      "actual": "A2",
+      "actual_real": "MilitaryHistory_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/67.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "MarineLifeData_Expert",
+        "VideoContentAnalysis_Expert",
+        "Verification_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A3",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/71.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DataExtraction_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert",
+        "DataAnalysis_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "DataExtraction_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/73.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "DoctorWhoScript_Expert",
+        "VideoAnalysis_Expert",
+        "Validation_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "VideoAnalysis_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/74.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "MerriamWebsterWordOfTheDay_Historian_Expert",
+        "Computer_terminal",
+        "Quotation_Specialist",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.475396,
+        "A2": 0.15598,
+        "A3": 0.161261,
+        "A4": 0.218412
+      },
+      "predicted": "A1",
+      "confidence": 0.475396,
+      "actual": "A1",
+      "actual_real": "MerriamWebsterWordOfTheDay_Historian_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/75.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Data_Collection_Expert",
+        "DataAnalysis_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Data_Collection_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/76.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Baseball_Expert",
+        "Validation_Expert",
+        "Computer_terminal",
+        "SportsHistorian_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.482399,
+        "A2": 0.294197,
+        "A3": 0.09451,
+        "A4": 0.228239
+      },
+      "predicted": "A1",
+      "confidence": 0.482399,
+      "actual": "A2",
+      "actual_real": "Validation_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/77.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "YouTubeDownload_Expert",
+        "Computer_terminal",
+        "VideoProcessing_Expert",
+        "ResultVerification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.581803,
+        "A2": 0.131623,
+        "A3": 0.109719,
+        "A4": 0.226
+      },
+      "predicted": "A1",
+      "confidence": 0.581803,
+      "actual": "A1",
+      "actual_real": "YouTubeDownload_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/79.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "WaybackMachine_Expert",
+        "Computer_terminal",
+        "MenuAnalysis_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.475396,
+        "A2": 0.15598,
+        "A3": 0.161261,
+        "A4": 0.218412
+      },
+      "predicted": "A1",
+      "confidence": 0.475396,
+      "actual": "A1",
+      "actual_real": "WaybackMachine_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/8.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Excel_Expert",
+        "Computer_terminal",
+        "AlgorithmDesign_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A3",
+      "actual_real": "AlgorithmDesign_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/80.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "PythonDebugging_Expert",
+        "Computer_terminal",
+        "Environment_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A1",
+      "actual_real": "PythonDebugging_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/81.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Fashion_Vogue_Expert",
+        "Geography_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A4",
+      "actual_real": "DataVerification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/82.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Marathon_Expert",
+        "CelestialPhysics_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Marathon_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/83.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "StatisticalAnalysis_Expert",
+        "DataAnalysis_Expert",
+        "Computer_terminal",
+        "DataVerification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A2",
+      "actual_real": "DataAnalysis_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/85.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "WebServing_Expert",
+        "DataVerification_Expert",
+        "Computer_terminal",
+        "BenAndJerrysFlavors_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": false,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.482399,
+        "A2": 0.294197,
+        "A3": 0.09451,
+        "A4": 0.228239
+      },
+      "predicted": "A1",
+      "confidence": 0.482399,
+      "actual": "A4",
+      "actual_real": "BenAndJerrysFlavors_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/86.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Library_Database_Expert",
+        "Computer_terminal",
+        "NaturalLanguageProcessing_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.582252,
+        "A2": 0.130888,
+        "A3": 0.116431,
+        "A4": 0.144352
+      },
+      "predicted": "A1",
+      "confidence": 0.582252,
+      "actual": "A1",
+      "actual_real": "Library_Database_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/87.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "MusicHistorian_Expert",
+        "Music_Critic_Expert",
+        "DataVerification_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.381684,
+        "A2": 0.334856,
+        "A3": 0.144415,
+        "A4": 0.14159
+      },
+      "predicted": "A1",
+      "confidence": 0.381684,
+      "actual": "A2",
+      "actual_real": "Music_Critic_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/88.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "FinancialData_Expert",
+        "Computer_terminal",
+        "DataValidation_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.581803,
+        "A2": 0.131623,
+        "A3": 0.109719,
+        "A4": 0.226
+      },
+      "predicted": "A1",
+      "confidence": 0.581803,
+      "actual": "A1",
+      "actual_real": "FinancialData_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/89.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Baseball_Historian_Expert",
+        "Validation_Expert",
+        "DataAnalysis_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": true,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.374915,
+        "A2": 0.347777,
+        "A3": 0.09496,
+        "A4": 0.146471
+      },
+      "predicted": "A1",
+      "confidence": 0.374915,
+      "actual": "A2",
+      "actual_real": "Validation_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/9.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "AlgorithmDesign_Expert",
+        "GameTheory_Expert",
+        "VerificationExpert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "GameTheory_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/94.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "BirdSpeciesIdentification_Expert",
+        "Computer_terminal",
+        "Ornithology_Expert",
+        "AnimalBehavior_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A4",
+      "actual_real": "AnimalBehavior_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/95.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "AcademicPublication_Expert",
+        "Computer_terminal",
+        "PublicationAnalysis_Expert",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.585533,
+        "A2": 0.125521,
+        "A3": 0.165455,
+        "A4": 0.217795
+      },
+      "predicted": "A1",
+      "confidence": 0.585533,
+      "actual": "A1",
+      "actual_real": "AcademicPublication_Expert",
+      "correct": true
+    },
+    {
+      "file_name": "Algorithm-Generated/98.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "TheoreticalChemistry_Expert",
+        "Probability_Expert",
+        "Computer_terminal",
+        "Verification_Expert"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A2",
+      "actual_real": "Probability_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Algorithm-Generated/99.json",
+      "subset": "Algorithm-Generated",
+      "agents": [
+        "Ticket_Pricing_Expert",
+        "AnalyticalReasoning_Expert",
+        "Verification_Expert",
+        "Computer_terminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A3",
+      "actual_real": "Verification_Expert",
+      "correct": false
+    },
+    {
+      "file_name": "Hand-Crafted/14.json",
+      "subset": "Hand-Crafted",
+      "agents": [
+        "Orchestrator",
+        "WebSurfer",
+        "FileSurfer",
+        "ComputerTerminal"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": false,
+        "A3": false,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.380579,
+        "A2": 0.336966,
+        "A3": 0.136338,
+        "A4": 0.222081
+      },
+      "predicted": "A1",
+      "confidence": 0.380579,
+      "actual": "A1",
+      "actual_real": "Orchestrator",
+      "correct": true
+    },
+    {
+      "file_name": "Hand-Crafted/30.json",
+      "subset": "Hand-Crafted",
+      "agents": [
+        "Orchestrator",
+        "WebSurfer",
+        "FileSurfer",
+        "Assistant"
+      ],
+      "evidence": {
+        "A1": false,
+        "A2": true,
+        "A3": true,
+        "A4": false
+      },
+      "posterior": {
+        "A1": 0.471568,
+        "A2": 0.163286,
+        "A3": 0.106757,
+        "A4": 0.226436
+      },
+      "predicted": "A1",
+      "confidence": 0.471568,
+      "actual": "A4",
+      "actual_real": "Assistant",
+      "correct": false
+    },
+    {
+      "file_name": "Hand-Crafted/51.json",
+      "subset": "Hand-Crafted",
+      "agents": [
+        "Orchestrator",
+        "FileSurfer",
+        "Assistant",
+        "WebSurfer"
+      ],
+      "evidence": {
+        "A1": true,
+        "A2": true,
+        "A3": false,
+        "A4": true
+      },
+      "posterior": {
+        "A1": 0.586166,
+        "A2": 0.124487,
+        "A3": 0.174907,
+        "A4": 0.138581
+      },
+      "predicted": "A1",
+      "confidence": 0.586166,
+      "actual": "A2",
+      "actual_real": "FileSurfer",
+      "correct": false
+    }
+  ],
+  "brute_force_max_diff": 4.440892098500626e-16
+}

@@ -1,0 +1,2221 @@
+{
+  "params": {
+    "states": [
+      "Healthy",
+      "Slipping",
+      "Failed"
+    ],
+    "threshold": 0.5,
+    "transition_matrix_A": [
+      [
+        0.94,
+        0.05,
+        0.01
+      ],
+      [
+        0.08,
+        0.85,
+        0.07
+      ],
+      [
+        0.05,
+        0.05,
+        0.9
+      ]
+    ],
+    "initial_distribution_pi": [
+      0.95,
+      0.045,
+      0.005
+    ],
+    "emissions_B": [
+      [
+        0.86,
+        0.14
+      ],
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.1,
+        0.9
+      ]
+    ],
+    "emission_design_note": "Designed per the phase spec's qualitative direction; the Phase 3 learned sensor CPTs are anti-correlated on the culprit axis and the temporal likelihood ratio of the keyword channel is ~1.0 (measured), so fitted emissions would render the monitor deaf. See report.",
+    "sensor_cpts_from_phase3": {
+      "A1": [
+        [
+          0.7169811320754716,
+          0.2830188679245283
+        ],
+        [
+          0.6190476190476191,
+          0.38095238095238093
+        ]
+      ],
+      "A2": [
+        [
+          0.6666666666666666,
+          0.3333333333333333
+        ],
+        [
+          0.8461538461538461,
+          0.15384615384615385
+        ]
+      ],
+      "A3": [
+        [
+          0.5542168674698795,
+          0.4457831325301205
+        ],
+        [
+          0.6666666666666666,
+          0.3333333333333333
+        ]
+      ],
+      "A4": [
+        [
+          0.6842105263157895,
+          0.3157894736842105
+        ],
+        [
+          0.7894736842105263,
+          0.21052631578947367
+        ]
+      ]
+    }
+  },
+  "sweep_summary": {
+    "num_all": 91,
+    "n_success": 0,
+    "n_at_round": 2,
+    "n_late": 6,
+    "n_other_agent": 12,
+    "n_none": 71,
+    "n_mistake_round1": 58,
+    "n_evaluable": 33,
+    "n_culprit_warned": 8,
+    "mean_rounds": 4.065934065934066,
+    "mean_warn_conf": 0.5500020138177037,
+    "mean_lead": null,
+    "n_err_pre": 4,
+    "n_rounds_pre": 46,
+    "p_err_pre": 0.08695652173913043,
+    "p_err_at": 0.1978021978021978,
+    "p_err_post": 0.1978021978021978,
+    "n_any_hit_pre": 20,
+    "threshold_sweep": [
+      {
+        "threshold": 0.3,
+        "culprit_before": 0,
+        "culprit_before_or_at": 2,
+        "culprit_warned": 10,
+        "any_warn_rate": 0.31868131868131866,
+        "mean_lead": null
+      },
+      {
+        "threshold": 0.4,
+        "culprit_before": 0,
+        "culprit_before_or_at": 2,
+        "culprit_warned": 8,
+        "any_warn_rate": 0.24175824175824176,
+        "mean_lead": null
+      },
+      {
+        "threshold": 0.5,
+        "culprit_before": 0,
+        "culprit_before_or_at": 2,
+        "culprit_warned": 8,
+        "any_warn_rate": 0.21978021978021978,
+        "mean_lead": null
+      },
+      {
+        "threshold": 0.6,
+        "culprit_before": 0,
+        "culprit_before_or_at": 0,
+        "culprit_warned": 4,
+        "any_warn_rate": 0.13186813186813187,
+        "mean_lead": null
+      },
+      {
+        "threshold": 0.7,
+        "culprit_before": 0,
+        "culprit_before_or_at": 0,
+        "culprit_warned": 3,
+        "any_warn_rate": 0.08791208791208792,
+        "mean_lead": null
+      }
+    ]
+  },
+  "sweep": [
+    {
+      "file_name": "Algorithm-Generated/1.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/101.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "2",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/102.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/103.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A3": 3
+      },
+      "first_warning": {
+        "agent": "A3",
+        "turn": 3,
+        "confidence": 0.6403575685759672
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/104.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "LATE_WARNING",
+      "warnings": {
+        "A1": 2
+      },
+      "first_warning": {
+        "agent": "A1",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/105.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "6",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/106.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/107.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "6",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/108.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "8",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/109.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A3": 3
+      },
+      "first_warning": {
+        "agent": "A3",
+        "turn": 3,
+        "confidence": 0.6403575685759672
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/11.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "6",
+      "mistake_round": 2,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/110.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "5",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/111.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "8",
+      "mistake_round": 3,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/112.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "WARNING_AT_MISTAKE_ROUND",
+      "warnings": {
+        "A1": 2
+      },
+      "first_warning": {
+        "agent": "A1",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/113.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "7",
+      "mistake_round": 2,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/114.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/115.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/116.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "7",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A3": 2
+      },
+      "first_warning": {
+        "agent": "A3",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/117.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/118.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A3": 2
+      },
+      "first_warning": {
+        "agent": "A3",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/119.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/120.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "8",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/121.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "LATE_WARNING",
+      "warnings": {
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/122.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "3",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/123.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 3,
+        "A3": 3
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 3,
+        "confidence": 0.6403575685759672
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/13.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/15.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "6",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/16.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/17.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "4",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/18.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "7",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/19.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "LATE_WARNING",
+      "warnings": {
+        "A1": 2,
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A1",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/2.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "2",
+      "mistake_round": 1,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/22.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/23.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 3,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 3
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 3,
+        "confidence": 0.6403575685759672
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/25.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "LATE_WARNING",
+      "warnings": {
+        "A3": 2,
+        "A1": 3
+      },
+      "first_warning": {
+        "agent": "A3",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/26.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "3",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/27.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/28.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 7,
+      "mistake_step_raw": "8",
+      "mistake_round": 1,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/3.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "4",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/30.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/31.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/32.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/34.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/36.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "2",
+      "mistake_round": 1,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/37.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/39.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/4.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "2",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/40.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/42.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/43.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/44.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 6,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/45.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/46.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/48.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "6",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/5.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/51.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/52.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/54.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "5",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/56.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "5",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/57.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/59.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/6.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/60.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "3",
+      "mistake_round": 1,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/63.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "5",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/64.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/67.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/71.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/73.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/74.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "4",
+      "mistake_round": 3,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/75.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "1",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/76.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "5",
+      "mistake_round": 2,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/77.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/79.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "1",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/8.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 3,
+      "outcome": "WARNING_AT_MISTAKE_ROUND",
+      "warnings": {
+        "A3": 2
+      },
+      "first_warning": {
+        "agent": "A3",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/80.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "LATE_WARNING",
+      "warnings": {
+        "A1": 2,
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A1",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/81.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "5",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/82.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "4",
+      "mistake_round": 2,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/83.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "8",
+      "mistake_round": 2,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/85.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "6",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/86.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/87.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/88.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 5,
+      "mistake_step_raw": "0",
+      "mistake_round": 1,
+      "mistake_position": 1,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/89.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 3,
+      "mistake_step_raw": "8",
+      "mistake_round": 2,
+      "mistake_position": 2,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A4": 2
+      },
+      "first_warning": {
+        "agent": "A4",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/9.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/94.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "8",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/95.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "5",
+      "mistake_round": 4,
+      "mistake_position": 1,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/98.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 2,
+      "mistake_step_raw": "1",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Algorithm-Generated/99.json",
+      "subset": "Algorithm-Generated",
+      "n_rounds": 4,
+      "mistake_step_raw": "2",
+      "mistake_round": 1,
+      "mistake_position": 3,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Hand-Crafted/14.json",
+      "subset": "Hand-Crafted",
+      "n_rounds": 8,
+      "mistake_step_raw": "14",
+      "mistake_round": 4,
+      "mistake_position": 1,
+      "outcome": "NO_WARNING",
+      "warnings": {},
+      "first_warning": {
+        "agent": null,
+        "turn": null,
+        "confidence": null
+      }
+    },
+    {
+      "file_name": "Hand-Crafted/30.json",
+      "subset": "Hand-Crafted",
+      "n_rounds": 28,
+      "mistake_step_raw": "82",
+      "mistake_round": 1,
+      "mistake_position": 4,
+      "outcome": "OTHER_AGENT_WARNING",
+      "warnings": {
+        "A2": 3
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 3,
+        "confidence": 0.6403575685759672
+      }
+    },
+    {
+      "file_name": "Hand-Crafted/51.json",
+      "subset": "Hand-Crafted",
+      "n_rounds": 29,
+      "mistake_step_raw": "5",
+      "mistake_round": 1,
+      "mistake_position": 2,
+      "outcome": "LATE_WARNING",
+      "warnings": {
+        "A2": 2
+      },
+      "first_warning": {
+        "agent": "A2",
+        "turn": 2,
+        "confidence": 0.5198834955649493
+      }
+    }
+  ],
+  "test_blocks": [
+    {
+      "file_name": "Algorithm-Generated/76.json",
+      "mistake_round": 2,
+      "outcome": "NO_WARNING",
+      "validation": {
+        "checked": true,
+        "max_t": 2,
+        "max_diff": 1.1102230246251565e-16,
+        "status": "OK"
+      },
+      "turn_logs": [
+        {
+          "t": 1,
+          "obs": {
+            "A1": 1,
+            "A2": 0,
+            "A3": 0,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.83125,
+              0.140625,
+              0.028125000000000004
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 2,
+          "obs": {
+            "A1": 0,
+            "A2": 0,
+            "A3": 0,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.8886129957333707,
+              0.10573042645147541,
+              0.005656577815153937
+            ],
+            "A2": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A3": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 3,
+          "obs": {
+            "A1": null,
+            "A2": 0,
+            "A3": 1,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.8886129957333707,
+              0.10573042645147541,
+              0.005656577815153937
+            ],
+            "A2": [
+              0.9466333830894269,
+              0.05166856712936222,
+              0.0016980497812109153
+            ],
+            "A3": [
+              0.697128404853582,
+              0.23373717796423094,
+              0.0691344171821872
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 4,
+          "obs": {
+            "A1": null,
+            "A2": null,
+            "A3": 0,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.8886129957333707,
+              0.10573042645147541,
+              0.005656577815153937
+            ],
+            "A2": [
+              0.9466333830894269,
+              0.05166856712936222,
+              0.0016980497812109153
+            ],
+            "A3": [
+              0.820970938641938,
+              0.1669734953800171,
+              0.012055565978044927
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        }
+      ]
+    },
+    {
+      "file_name": "Algorithm-Generated/109.json",
+      "mistake_round": 1,
+      "outcome": "OTHER_AGENT_WARNING",
+      "validation": {
+        "checked": true,
+        "max_t": 3,
+        "max_diff": 1.1102230246251565e-16,
+        "status": "OK"
+      },
+      "turn_logs": [
+        {
+          "t": 1,
+          "obs": {
+            "A1": 0,
+            "A2": 0,
+            "A3": 0,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 2,
+          "obs": {
+            "A1": 0,
+            "A2": null,
+            "A3": 1,
+            "A4": 1
+          },
+          "probs": {
+            "A1": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.7334060573725979,
+              0.20415357248336488,
+              0.062440370144037145
+            ],
+            "A4": [
+              0.7334060573725979,
+              0.20415357248336488,
+              0.062440370144037145
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 3,
+          "obs": {
+            "A1": 1,
+            "A2": null,
+            "A3": 1,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.697128404853582,
+              0.23373717796423094,
+              0.0691344171821872
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.3596424314240328,
+              0.3865380653352735,
+              0.25381950324069363
+            ],
+            "A4": [
+              0.7334060573725979,
+              0.20415357248336488,
+              0.062440370144037145
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": true,
+            "A4": false
+          }
+        },
+        {
+          "t": 4,
+          "obs": {
+            "A1": null,
+            "A2": null,
+            "A3": 1,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.697128404853582,
+              0.23373717796423094,
+              0.0691344171821872
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.11460997282551488,
+              0.3852480973127135,
+              0.5001419298617716
+            ],
+            "A4": [
+              0.7334060573725979,
+              0.20415357248336488,
+              0.062440370144037145
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": true,
+            "A4": false
+          }
+        }
+      ]
+    },
+    {
+      "file_name": "Algorithm-Generated/37.json",
+      "mistake_round": 2,
+      "outcome": "NO_WARNING",
+      "validation": {
+        "checked": true,
+        "max_t": 2,
+        "max_diff": 2.168404344971009e-19,
+        "status": "OK"
+      },
+      "turn_logs": [
+        {
+          "t": 1,
+          "obs": {
+            "A1": 0,
+            "A2": 0,
+            "A3": 1,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.83125,
+              0.140625,
+              0.028125000000000004
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 2,
+          "obs": {
+            "A1": 0,
+            "A2": 1,
+            "A3": null,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A2": [
+              0.7334060573725979,
+              0.20415357248336488,
+              0.062440370144037145
+            ],
+            "A3": [
+              0.83125,
+              0.140625,
+              0.028125000000000004
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        }
+      ]
+    },
+    {
+      "file_name": "Algorithm-Generated/82.json",
+      "mistake_round": 2,
+      "outcome": "NO_WARNING",
+      "validation": {
+        "checked": true,
+        "max_t": 2,
+        "max_diff": 2.168404344971009e-19,
+        "status": "OK"
+      },
+      "turn_logs": [
+        {
+          "t": 1,
+          "obs": {
+            "A1": 0,
+            "A2": 0,
+            "A3": 0,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A4": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 2,
+          "obs": {
+            "A1": 0,
+            "A2": 0,
+            "A3": null,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A2": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A3": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A4": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        }
+      ]
+    },
+    {
+      "file_name": "Algorithm-Generated/83.json",
+      "mistake_round": 2,
+      "outcome": "NO_WARNING",
+      "validation": {
+        "checked": true,
+        "max_t": 1,
+        "max_diff": 0.0,
+        "status": "OK"
+      },
+      "turn_logs": [
+        {
+          "t": 1,
+          "obs": {
+            "A1": 0,
+            "A2": 0,
+            "A3": 1,
+            "A4": 1
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A3": [
+              0.83125,
+              0.140625,
+              0.028125000000000004
+            ],
+            "A4": [
+              0.83125,
+              0.140625,
+              0.028125000000000004
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 2,
+          "obs": {
+            "A1": null,
+            "A2": 0,
+            "A3": 0,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A3": [
+              0.8886129957333707,
+              0.10573042645147541,
+              0.005656577815153937
+            ],
+            "A4": [
+              0.8886129957333707,
+              0.10573042645147541,
+              0.005656577815153937
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 3,
+          "obs": {
+            "A1": null,
+            "A2": null,
+            "A3": 0,
+            "A4": 0
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A3": [
+              0.9126998683330012,
+              0.08461207431075354,
+              0.002688057356245247
+            ],
+            "A4": [
+              0.9126998683330012,
+              0.08461207431075354,
+              0.002688057356245247
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        },
+        {
+          "t": 4,
+          "obs": {
+            "A1": null,
+            "A2": null,
+            "A3": 1,
+            "A4": null
+          },
+          "probs": {
+            "A1": [
+              0.9726190476190477,
+              0.026785714285714288,
+              0.0005952380952380954
+            ],
+            "A2": [
+              0.9552421622741619,
+              0.043286807710477056,
+              0.0014710300153610452
+            ],
+            "A3": [
+              0.6188653135877802,
+              0.3007738142608493,
+              0.08036087215137042
+            ],
+            "A4": [
+              0.9126998683330012,
+              0.08461207431075354,
+              0.002688057356245247
+            ]
+          },
+          "warn": {
+            "A1": false,
+            "A2": false,
+            "A3": false,
+            "A4": false
+          }
+        }
+      ]
+    }
+  ]
+}

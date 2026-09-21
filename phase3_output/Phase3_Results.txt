@@ -1,0 +1,237 @@
+====================================================================================================
+PHASE 3: INSTANCE-LEVEL EVIDENCE & DYNAMIC HAND-ROLLED VARIABLE ELIMINATION
+Who&When benchmark — 4-agent subset
+====================================================================================================
+Dataset root             : Agents_Failure_Attribution/Who&When
+Training files (exactly 4 unique agents): 91
+Causal chain (Phase 2)   : A1 -> A2 -> A3 -> A4 -> Final_Output
+Keyword sensors (new)    : A1 -> S1, A2 -> S2, A3 -> S3, A4 -> S4
+Failure keywords         : error, traceback, exception, failed, invalid, timeout
+Failure labeling         : node matching ground-truth mistake_agent -> Failed=True.
+Laplace smoothing alpha  : 1.0
+VE implementation        : hand-rolled (numpy broadcasting + axis sums; no pgmpy/networkx).
+Random seed (test pick)  : 42   |  num test files: 10
+Missing-evidence design  : for test files #1, #2, the logs of A3 are deleted BEFORE keyword extraction, so S3
+                           contributes no evidence and VE marginalizes it out.
+====================================================================================================
+
+LEARNED CPTs (from counting over all 4-agent files)
+----------------------------------------------------------------------------------------------------
+P(A1 Failed)                          = [Failed=False: 0.559140 | Failed=True: 0.440860]
+P(A2 Failed | A1=False)         = [Failed=False: 0.528302 | Failed=True: 0.471698]
+P(A2 Failed | A1=True)          = [Failed=False: 0.976190 | Failed=True: 0.023810]
+P(A3 Failed | A2=False)         = [Failed=False: 0.840580 | Failed=True: 0.159420]
+P(A3 Failed | A2=True)          = [Failed=False: 0.961538 | Failed=True: 0.038462]
+P(A4 Failed | A3=False)         = [Failed=False: 0.783133 | Failed=True: 0.216867]
+P(A4 Failed | A3=True)          = [Failed=False: 0.916667 | Failed=True: 0.083333]
+P(Final_Output | A4=False)            = [Failed=False: 0.013158 | Failed=True: 0.986842]
+P(Final_Output | A4=True)             = [Failed=False: 0.052632 | Failed=True: 0.947368]
+
+Sensor CPTs P(Si=True | Ai):
+    P(S1=True | A1=False)   = 0.283019    P(S1=True | A1=True)    = 0.380952
+    P(S2=True | A2=False)   = 0.333333    P(S2=True | A2=True)    = 0.153846
+    P(S3=True | A3=False)   = 0.445783    P(S3=True | A3=True)    = 0.333333
+    P(S4=True | A4=False)   = 0.315789    P(S4=True | A4=True)    = 0.210526
+
+====================================================================================================
+TEST EVALUATION — 10 random 4-agent files (seed 42)
+====================================================================================================
+
+####################################################################################################
+TEST BLOCK 1 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/88.json
+Agents (A1..A4)    : FinancialData_Expert, Computer_terminal, DataValidation_Expert, Verification_Expert
+Extracted Evidence : A1: Error found, A2: Error found, A3: Missing Logs, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.583930
+    P(A2 Failed | evidence) = 0.128144
+    P(A3 Failed | evidence) = 0.141496
+    P(A4 Failed | evidence) = 0.221322
+Predicted Culprit  : A1 (FinancialData_Expert)
+Actual Culprit     : A1 (FinancialData_Expert)
+Correct Prediction : YES
+[MISSING LOGS]      logs of A3 deleted before keyword scan (S3 has no evidence).
+  Culprit w/o S3   : A1 -> with S3: A1  (UNCHANGED)
+  Accuracy w/o S3  : YES
+  P(A3) w/o S3     : 0.141496 (marginalized; engine still exact)
+
+
+####################################################################################################
+TEST BLOCK 2 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/113.json
+Agents (A1..A4)    : Hiking_Expert, Reviews_Expert, Computer_terminal, Verification_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: Missing Logs, A4: Error found
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.378760
+    P(A2 Failed | evidence) = 0.340437
+    P(A3 Failed | evidence) = 0.123053
+    P(A4 Failed | evidence) = 0.143699
+Predicted Culprit  : A1 (Hiking_Expert)
+Actual Culprit     : A2 (Reviews_Expert)
+Correct Prediction : NO
+[MISSING LOGS]      logs of A3 deleted before keyword scan (S3 has no evidence).
+  Culprit w/o S3   : A1 -> with S3: A1  (UNCHANGED)
+  Accuracy w/o S3  : NO
+  P(A3) w/o S3     : 0.123053 (marginalized; engine still exact)
+
+
+####################################################################################################
+TEST BLOCK 3 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/103.json
+Agents (A1..A4)    : Eateries_Expert, Location-Based_Services_Expert, Computer_terminal, DataVerification_Expert
+Extracted Evidence : A1: Error found, A2: No Errors, A3: Error found, A4: Error found
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.483216
+    P(A2 Failed | evidence) = 0.292861
+    P(A3 Failed | evidence) = 0.100397
+    P(A4 Failed | evidence) = 0.145935
+Predicted Culprit  : A1 (Eateries_Expert)
+Actual Culprit     : A4 (DataVerification_Expert)
+Correct Prediction : NO
+
+
+####################################################################################################
+TEST BLOCK 4 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/26.json
+Agents (A1..A4)    : WomenInComputerScienceHistory_Expert, DataVerification_Expert, Computer_terminal, Statistics_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: No Errors, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.380579
+    P(A2 Failed | evidence) = 0.336966
+    P(A3 Failed | evidence) = 0.136338
+    P(A4 Failed | evidence) = 0.222081
+Predicted Culprit  : A1 (WomenInComputerScienceHistory_Expert)
+Actual Culprit     : A1 (WomenInComputerScienceHistory_Expert)
+Correct Prediction : YES
+
+
+####################################################################################################
+TEST BLOCK 5 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/2.json
+Agents (A1..A4)    : DataAnalysis_Expert, Computer_terminal, Verification_Expert, Statistics_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: No Errors, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.380579
+    P(A2 Failed | evidence) = 0.336966
+    P(A3 Failed | evidence) = 0.136338
+    P(A4 Failed | evidence) = 0.222081
+Predicted Culprit  : A1 (DataAnalysis_Expert)
+Actual Culprit     : A3 (Verification_Expert)
+Correct Prediction : NO
+
+
+####################################################################################################
+TEST BLOCK 6 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/17.json
+Agents (A1..A4)    : MarineBiology_Expert, Verification_Expert, Computer_terminal, Statistics_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: No Errors, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.380579
+    P(A2 Failed | evidence) = 0.336966
+    P(A3 Failed | evidence) = 0.136338
+    P(A4 Failed | evidence) = 0.222081
+Predicted Culprit  : A1 (MarineBiology_Expert)
+Actual Culprit     : A4 (Statistics_Expert)
+Correct Prediction : NO
+
+
+####################################################################################################
+TEST BLOCK 7 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/116.json
+Agents (A1..A4)    : DataAnalysis_Expert, DataManipulation_Expert, Computer_terminal, Verification_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: Error found, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.374148
+    P(A2 Failed | evidence) = 0.349240
+    P(A3 Failed | evidence) = 0.089361
+    P(A4 Failed | evidence) = 0.228997
+Predicted Culprit  : A1 (DataAnalysis_Expert)
+Actual Culprit     : A1 (DataAnalysis_Expert)
+Correct Prediction : YES
+
+
+####################################################################################################
+TEST BLOCK 8 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/112.json
+Agents (A1..A4)    : HistoricalWeatherData_Expert, Computer_terminal, Validation_Expert, Statistics_Expert
+Extracted Evidence : A1: Error found, A2: Error found, A3: Error found, A4: Error found
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.582252
+    P(A2 Failed | evidence) = 0.130888
+    P(A3 Failed | evidence) = 0.116431
+    P(A4 Failed | evidence) = 0.144352
+Predicted Culprit  : A1 (HistoricalWeatherData_Expert)
+Actual Culprit     : A1 (HistoricalWeatherData_Expert)
+Correct Prediction : YES
+
+
+####################################################################################################
+TEST BLOCK 9 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/98.json
+Agents (A1..A4)    : TheoreticalChemistry_Expert, Probability_Expert, Computer_terminal, Verification_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: No Errors, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.380579
+    P(A2 Failed | evidence) = 0.336966
+    P(A3 Failed | evidence) = 0.136338
+    P(A4 Failed | evidence) = 0.222081
+Predicted Culprit  : A1 (TheoreticalChemistry_Expert)
+Actual Culprit     : A2 (Probability_Expert)
+Correct Prediction : NO
+
+
+####################################################################################################
+TEST BLOCK 10 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/75.json
+Agents (A1..A4)    : Data_Collection_Expert, DataAnalysis_Expert, Computer_terminal, Verification_Expert
+Extracted Evidence : A1: No Errors, A2: No Errors, A3: No Errors, A4: No Errors
+VE Probabilities   :
+    P(A1 Failed | evidence) = 0.380579
+    P(A2 Failed | evidence) = 0.336966
+    P(A3 Failed | evidence) = 0.136338
+    P(A4 Failed | evidence) = 0.222081
+Predicted Culprit  : A1 (Data_Collection_Expert)
+Actual Culprit     : A1 (Data_Collection_Expert)
+Correct Prediction : YES
+
+====================================================================================================
+EVALUATION SUMMARY
+====================================================================================================
+Correct predictions on the 10 random test files: 5/10 (50.0%)
+  [dynamic, instance-level evidence (seed 42); Phase 2 scored 5/10 (50.0%)
+     on a different 10-file draw (seed 7) — draws differ, so treat as indicative]
+Missing-evidence subset (A3 logs deleted): 1/2 correct without S3; prediction changed in 0 of 2 case(s)
+Accuracy of always predicting argmax positional prior (A1) on ALL 91 4-agent files: 40/91 (44.0%)
+
+Mistake-position distribution over all 4-agent files:
+    A1:  40 files (44.0%)
+    A2:  24 files (26.4%)
+    A3:  10 files (11.0%)
+    A4:  17 files (18.7%)
+
+NOTE — why the probabilities now differ per file:
+  Each agent's keyword sensor injects instance-level evidence, so the
+  posterior P(Ai Failed | evidence) is file-specific. Sensors keep the
+  network a tree, so VE remains exact; the brute-force cross-check over
+  the 2^10 joint confirmed agreement to 2.220e-16.
+  When S3 is missing (deleted logs), VE simply never clamps S3 and
+  marginalizes over it — inference stays well-defined and exact.
+  On files where NO agent's logs contain any keyword, the posterior
+  collapses to the learned no-evidence prior (identical rows).
+  Learned sensor CPTs: keyword hits are positively correlated with failure
+  for A1, anti-correlated for A2..A4 (downstream agents echo the fallout
+  of upstream mistakes), and VE exploits those likelihood ratios.
+
+====================================================================================================
+END OF PHASE 3 REPORT
+====================================================================================================

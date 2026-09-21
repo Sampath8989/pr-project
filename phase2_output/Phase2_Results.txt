@@ -1,0 +1,205 @@
+====================================================================================================
+PHASE 2: PARAMETER LEARNING & HAND-ROLLED VARIABLE ELIMINATION — Who&When benchmark
+====================================================================================================
+Dataset root            : Agents_Failure_Attribution/Who&When
+Training files (exactly 4 unique agents): 91
+Network structure       : A1 -> A2 -> A3 -> A4 -> Final_Output
+Node semantics          : agents mapped to A1..A4 by order of first appearance;
+                          Final_Output appended and always Failed=True (pipeline failed).
+Failure labeling        : node matching ground-truth mistake_agent -> Failed=True; others False.
+Laplace smoothing alpha : 1.0
+VE implementation       : hand-rolled (numpy broadcasting + axis sums only; no pgmpy/networkx).
+Random seed (test pick) : 42   |  num test files: 10
+====================================================================================================
+
+LEARNED CPTs (from counting over all 4-agent files)
+----------------------------------------------------------------------------------------------------
+P(A1 Failed)                       = [Failed=False: 0.559140 | Failed=True: 0.440860]
+    raw A1 counts: False=51, True=40
+P(A2 Failed | A1=False)      = [Failed=False: 0.528302 | Failed=True: 0.471698]
+P(A2 Failed | A1=True)       = [Failed=False: 0.976190 | Failed=True: 0.023810]
+    raw counts A1->A2: False->False:27, False->True:24, True->False:40, True->True:0
+P(A3 Failed | A2=False)      = [Failed=False: 0.840580 | Failed=True: 0.159420]
+P(A3 Failed | A2=True)       = [Failed=False: 0.961538 | Failed=True: 0.038462]
+    raw counts A2->A3: False->False:57, False->True:10, True->False:24, True->True:0
+P(A4 Failed | A3=False)      = [Failed=False: 0.783133 | Failed=True: 0.216867]
+P(A4 Failed | A3=True)       = [Failed=False: 0.916667 | Failed=True: 0.083333]
+    raw counts A3->A4: False->False:64, False->True:17, True->False:10, True->True:0
+P(Final_Output | A4=False)         = [Failed=False: 0.013158 | Failed=True: 0.986842]
+P(Final_Output | A4=True)          = [Failed=False: 0.052632 | Failed=True: 0.947368]
+    raw counts A4->Final: False->False:0, False->True:74, True->False:0, True->True:17
+
+POSTERIOR P(Ai = Failed | Final_Output = True)  [hand-rolled VE]
+----------------------------------------------------------------------------------------------------
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+    argmax node (global prediction) = A1
+
+Brute-force cross-check (32-state joint enumeration): max |VE - brute force| over A1..A4 = 5.551e-17
+
+====================================================================================================
+TEST EVALUATION — 10 random 4-agent files (seed 42)
+====================================================================================================
+
+####################################################################################################
+TEST BLOCK 1 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/88.json
+Agents (A1..A4)    : FinancialData_Expert, Computer_terminal, DataValidation_Expert, Verification_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (FinancialData_Expert)
+Actual Culprit     : A1 (FinancialData_Expert)
+Correct Prediction : YES
+
+####################################################################################################
+TEST BLOCK 2 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/113.json
+Agents (A1..A4)    : Hiking_Expert, Reviews_Expert, Computer_terminal, Verification_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (Hiking_Expert)
+Actual Culprit     : A2 (Reviews_Expert)
+Correct Prediction : NO
+
+####################################################################################################
+TEST BLOCK 3 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/103.json
+Agents (A1..A4)    : Eateries_Expert, Location-Based_Services_Expert, Computer_terminal, DataVerification_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (Eateries_Expert)
+Actual Culprit     : A4 (DataVerification_Expert)
+Correct Prediction : NO
+
+####################################################################################################
+TEST BLOCK 4 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/26.json
+Agents (A1..A4)    : WomenInComputerScienceHistory_Expert, DataVerification_Expert, Computer_terminal, Statistics_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (WomenInComputerScienceHistory_Expert)
+Actual Culprit     : A1 (WomenInComputerScienceHistory_Expert)
+Correct Prediction : YES
+
+####################################################################################################
+TEST BLOCK 5 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/2.json
+Agents (A1..A4)    : DataAnalysis_Expert, Computer_terminal, Verification_Expert, Statistics_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (DataAnalysis_Expert)
+Actual Culprit     : A3 (Verification_Expert)
+Correct Prediction : NO
+
+####################################################################################################
+TEST BLOCK 6 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/17.json
+Agents (A1..A4)    : MarineBiology_Expert, Verification_Expert, Computer_terminal, Statistics_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (MarineBiology_Expert)
+Actual Culprit     : A4 (Statistics_Expert)
+Correct Prediction : NO
+
+####################################################################################################
+TEST BLOCK 7 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/116.json
+Agents (A1..A4)    : DataAnalysis_Expert, DataManipulation_Expert, Computer_terminal, Verification_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (DataAnalysis_Expert)
+Actual Culprit     : A1 (DataAnalysis_Expert)
+Correct Prediction : YES
+
+####################################################################################################
+TEST BLOCK 8 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/112.json
+Agents (A1..A4)    : HistoricalWeatherData_Expert, Computer_terminal, Validation_Expert, Statistics_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (HistoricalWeatherData_Expert)
+Actual Culprit     : A1 (HistoricalWeatherData_Expert)
+Correct Prediction : YES
+
+####################################################################################################
+TEST BLOCK 9 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/98.json
+Agents (A1..A4)    : TheoreticalChemistry_Expert, Probability_Expert, Computer_terminal, Verification_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (TheoreticalChemistry_Expert)
+Actual Culprit     : A2 (Probability_Expert)
+Correct Prediction : NO
+
+####################################################################################################
+TEST BLOCK 10 / 10
+####################################################################################################
+File Name          : Algorithm-Generated/75.json
+Agents (A1..A4)    : Data_Collection_Expert, DataAnalysis_Expert, Computer_terminal, Verification_Expert
+VE Probabilities   :
+    P(A1 Failed | Final_Output=True) = 0.440932
+    P(A2 Failed | Final_Output=True) = 0.274112
+    P(A3 Failed | Final_Output=True) = 0.126842
+    P(A4 Failed | Final_Output=True) = 0.193557
+Predicted Culprit  : A1 (Data_Collection_Expert)
+Actual Culprit     : A1 (Data_Collection_Expert)
+Correct Prediction : YES
+
+====================================================================================================
+EVALUATION SUMMARY
+====================================================================================================
+Correct predictions on the 10 random test files: 5/10 (50.0%)
+Accuracy of always predicting argmax node on ALL 91 4-agent files: 40/91 (44.0%)
+
+Mistake-position distribution over all 4-agent files:
+    A1:  40 files (44.0%)
+    A2:  24 files (26.4%)
+    A3:  10 files (11.0%)
+    A4:  17 files (18.7%)
+
+NOTE — why the 10 blocks show identical probabilities:
+  The network is a single global model and the only evidence is Final_Output=True, which is the same for every failed trace.
+  Per-file posteriors therefore coincide; the model's prediction is a learned positional prior (the most failure-prone slot, A1 here).
+  File-specific inference would require instance-level evidence (e.g., observed agent behaviors) — a natural Phase 3 extension.
+
+====================================================================================================
+END OF PHASE 2 REPORT
+====================================================================================================

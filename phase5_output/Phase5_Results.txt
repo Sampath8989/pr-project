@@ -1,0 +1,332 @@
+====================================================================================================
+PHASE 5: HMM TEMPORAL DEGRADATION TRACKING & EARLY WARNING
+Who&When benchmark — 4-agent subset (from post-mortem attribution to early warning)
+====================================================================================================
+Files available (exactly 4 unique agents) : 91
+Files skipped by parser                   : {'2_agents': 34, '3_agents': 54, '1_agents': 3, '5_agents': 2}
+Detailed test blocks                      : 5 random files (seed 29), turn-by-turn logs below
+Hidden states per agent                   : ('Healthy', 'Slipping', 'Failed')
+Failure keywords (Phase 3 sensor)         : error, traceback, exception, failed, invalid, timeout
+Observation per agent per turn            : 'Error Found' if any keyword in that
+                                            agent's utterance, else 'No Error';
+                                            agent silent -> no observation, belief carried
+Inference                                 : hand-rolled forward algorithm (numpy only;
+                                            no hmmlearn/pgmpy/scipy), independent HMMs
+                                            per agent on a shared turn axis
+Early-warning rule                        : P(Slipping) + P(Failed) > 0.50
+Warning 'early enough' iff                : warning turn < mistake round (strict)
+mistake_step semantics (verified)         : 0-based history index; history[step] authored
+                                            by mistake_agent in 89/91 files (locator
+                                            tolerates +-3 adjacent indices for the rest)
+Turn definition                           : turn t = each agent's t-th authored utterance,
+                                            canonical order A1..A4 (rounds 2-8 in 90/91 files)
+====================================================================================================
+
+HMM PARAMETERS
+----------------------------------------------------------------------------------------------------
+Transition matrix A (designed; from \ to) — the spec's illustrative matrix forgets
+degradation within one quiet turn, which is fatal with sparse keyword hits:
+                    Healthy   Slipping   Failed
+    Healthy           0.94      0.05      0.01
+    Slipping          0.08      0.85      0.07
+    Failed            0.05      0.05      0.90
+Initial distribution pi = [Healthy 0.95, Slipping 0.045, Failed 0.005]
+Emission matrix B — P(Error Found | state), DESIGNED per the phase spec's
+qualitative direction (errors indicate degradation). See the ceiling
+analysis below for WHY they are not fitted to the data:
+    Healthy  = [0.86 NoErr, 0.14 Err]
+    Slipping = [0.50 NoErr, 0.50 Err]
+    Failed   = [0.10 NoErr, 0.90 Err]
+(For provenance, the Phase 3 LEARNED sensor CPTs P(S=True|A=False / A=True)
+ are: A1 0.283/0.381, A2 0.333/0.154, A3 0.446/0.333, A4 0.316/0.211 — anti-correlated for A2..A4 on the culprit axis, see below.)
+
+====================================================================================================
+DETAILED TEST BLOCKS — 5 random 4-agent files (seed 29)
+====================================================================================================
+
+####################################################################################################
+TEST BLOCK 1 / 5
+####################################################################################################
+File Name            : Algorithm-Generated/76.json
+Agents (A1..A4)      : Baseball_Expert, Validation_Expert, Computer_terminal, SportsHistorian_Expert
+Actual Culprit       : A2 (Validation_Expert)
+Actual Mistake Step  : history[5] -> round 2 of 4 (1-based agent rounds)
+Early Warning        : none triggered
+Outcome              : NO_WARNING
+                       no agent ever crossed the warning threshold
+
+Turn-by-turn HMM monitor log (beliefs P(Healthy/Slipping/Failed | obs so far))
+----------------------------------------------------------------------------------------------------
+  T |   A1      A2      A3      A4    |     A1: H / S / F         A2: H / S / F         A3: H / S / F         A4: H / S / F     | Warning
+----------------------------------------------------------------------------------------------------
+  1 |   Err     ok      ok      ok    |     0.83/0.14/0.03        0.97/0.03/0.00        0.97/0.03/0.00        0.97/0.03/0.00    | -
+  2 |   ok      ok      ok       ·    |     0.89/0.11/0.01        0.96/0.04/0.00        0.96/0.04/0.00        0.97/0.03/0.00    | -
+  3 |    ·      ok      Err      ·    |     0.89/0.11/0.01        0.95/0.05/0.00        0.70/0.23/0.07        0.97/0.03/0.00    | -
+  4 |    ·       ·      ok       ·    |     0.89/0.11/0.01        0.95/0.05/0.00        0.82/0.17/0.01        0.97/0.03/0.00    | -
+----------------------------------------------------------------------------------------------------
+Result: no agent ever crossed the warning threshold (mistake round 2)
+Forward-algorithm validation vs brute-force 3^T enumeration on all prefixes up to T=2: max |delta| = 1.110e-16  (OK)
+
+
+####################################################################################################
+TEST BLOCK 2 / 5
+####################################################################################################
+File Name            : Algorithm-Generated/109.json
+Agents (A1..A4)      : Geography_Expert, Verification_Expert, Computer_terminal, Grocery_Expert
+Actual Culprit       : A2 (Verification_Expert)
+Actual Mistake Step  : history[1] -> round 1 of 4 (1-based agent rounds)
+Early Warning        : A3 at turn 3 (P(Slipping)+P(Failed) = 0.6404)
+Outcome              : OTHER_AGENT_WARNING
+                       warnings fired, but never for the culprit agent
+
+Turn-by-turn HMM monitor log (beliefs P(Healthy/Slipping/Failed | obs so far))
+----------------------------------------------------------------------------------------------------
+  T |   A1      A2      A3      A4    |     A1: H / S / F         A2: H / S / F         A3: H / S / F         A4: H / S / F     | Warning
+----------------------------------------------------------------------------------------------------
+  1 |   ok      ok      ok      ok    |     0.97/0.03/0.00        0.97/0.03/0.00        0.97/0.03/0.00        0.97/0.03/0.00    | -
+  2 |   ok       ·      Err     Err   |     0.96/0.04/0.00        0.97/0.03/0.00        0.73/0.20/0.06        0.73/0.20/0.06    | -
+  3 |   Err      ·      Err      ·    |     0.70/0.23/0.07        0.97/0.03/0.00        0.36/0.39/0.25        0.73/0.20/0.06    | A3
+  4 |    ·       ·      Err      ·    |     0.70/0.23/0.07        0.97/0.03/0.00        0.11/0.39/0.50        0.73/0.20/0.06    | A3
+----------------------------------------------------------------------------------------------------
+Result: warnings fired, but never for the culprit agent (warning turn 3 vs mistake round 1)
+Forward-algorithm validation vs brute-force 3^T enumeration on all prefixes up to T=3: max |delta| = 1.110e-16  (OK)
+
+
+####################################################################################################
+TEST BLOCK 3 / 5
+####################################################################################################
+File Name            : Algorithm-Generated/37.json
+Agents (A1..A4)      : Cubing_Expert, Verification_Expert, Computer_terminal, Geometry_Expert
+Actual Culprit       : A1 (Cubing_Expert)
+Actual Mistake Step  : history[1] -> round 2 of 2 (1-based agent rounds)
+Early Warning        : none triggered
+Outcome              : NO_WARNING
+                       no agent ever crossed the warning threshold
+
+Turn-by-turn HMM monitor log (beliefs P(Healthy/Slipping/Failed | obs so far))
+----------------------------------------------------------------------------------------------------
+  T |   A1      A2      A3      A4    |     A1: H / S / F         A2: H / S / F         A3: H / S / F         A4: H / S / F     | Warning
+----------------------------------------------------------------------------------------------------
+  1 |   ok      ok      Err     ok    |     0.97/0.03/0.00        0.97/0.03/0.00        0.83/0.14/0.03        0.97/0.03/0.00    | -
+  2 |   ok      Err      ·       ·    |     0.96/0.04/0.00        0.73/0.20/0.06        0.83/0.14/0.03        0.97/0.03/0.00    | -
+----------------------------------------------------------------------------------------------------
+Result: no agent ever crossed the warning threshold (mistake round 2)
+Forward-algorithm validation vs brute-force 3^T enumeration on all prefixes up to T=2: max |delta| = 2.168e-19  (OK)
+
+
+####################################################################################################
+TEST BLOCK 4 / 5
+####################################################################################################
+File Name            : Algorithm-Generated/82.json
+Agents (A1..A4)      : Marathon_Expert, CelestialPhysics_Expert, Computer_terminal, Verification_Expert
+Actual Culprit       : A1 (Marathon_Expert)
+Actual Mistake Step  : history[4] -> round 2 of 2 (1-based agent rounds)
+Early Warning        : none triggered
+Outcome              : NO_WARNING
+                       no agent ever crossed the warning threshold
+
+Turn-by-turn HMM monitor log (beliefs P(Healthy/Slipping/Failed | obs so far))
+----------------------------------------------------------------------------------------------------
+  T |   A1      A2      A3      A4    |     A1: H / S / F         A2: H / S / F         A3: H / S / F         A4: H / S / F     | Warning
+----------------------------------------------------------------------------------------------------
+  1 |   ok      ok      ok      ok    |     0.97/0.03/0.00        0.97/0.03/0.00        0.97/0.03/0.00        0.97/0.03/0.00    | -
+  2 |   ok      ok       ·      ok    |     0.96/0.04/0.00        0.96/0.04/0.00        0.97/0.03/0.00        0.96/0.04/0.00    | -
+----------------------------------------------------------------------------------------------------
+Result: no agent ever crossed the warning threshold (mistake round 2)
+Forward-algorithm validation vs brute-force 3^T enumeration on all prefixes up to T=2: max |delta| = 2.168e-19  (OK)
+
+
+####################################################################################################
+TEST BLOCK 5 / 5
+####################################################################################################
+File Name            : Algorithm-Generated/83.json
+Agents (A1..A4)      : StatisticalAnalysis_Expert, DataAnalysis_Expert, Computer_terminal, DataVerification_Expert
+Actual Culprit       : A2 (DataAnalysis_Expert)
+Actual Mistake Step  : history[8] -> round 2 of 4 (1-based agent rounds)
+Early Warning        : none triggered
+Outcome              : NO_WARNING
+                       no agent ever crossed the warning threshold
+
+Turn-by-turn HMM monitor log (beliefs P(Healthy/Slipping/Failed | obs so far))
+----------------------------------------------------------------------------------------------------
+  T |   A1      A2      A3      A4    |     A1: H / S / F         A2: H / S / F         A3: H / S / F         A4: H / S / F     | Warning
+----------------------------------------------------------------------------------------------------
+  1 |   ok      ok      Err     Err   |     0.97/0.03/0.00        0.97/0.03/0.00        0.83/0.14/0.03        0.83/0.14/0.03    | -
+  2 |    ·      ok      ok      ok    |     0.97/0.03/0.00        0.96/0.04/0.00        0.89/0.11/0.01        0.89/0.11/0.01    | -
+  3 |    ·       ·      ok      ok    |     0.97/0.03/0.00        0.96/0.04/0.00        0.91/0.08/0.00        0.91/0.08/0.00    | -
+  4 |    ·       ·      Err      ·    |     0.97/0.03/0.00        0.96/0.04/0.00        0.62/0.30/0.08        0.91/0.08/0.00    | -
+----------------------------------------------------------------------------------------------------
+Result: no agent ever crossed the warning threshold (mistake round 2)
+Forward-algorithm validation vs brute-force 3^T enumeration on all prefixes up to T=1: max |delta| = 0.000e+00  (OK)
+
+====================================================================================================
+FULL SWEEP — ALL 91 FOUR-AGENT FILES (same engine, no randomness)
+====================================================================================================
+  #  File                                           Rnds MstRd   Warning  Outcome
+  1  Algorithm-Generated/1.json                        2     1      none  NO_WARNING
+  2  Algorithm-Generated/101.json                      4     3      none  NO_WARNING
+  3  Algorithm-Generated/102.json                      4     2      none  NO_WARNING
+  4  Algorithm-Generated/103.json                      4     1      A3@3  OTHER_AGENT_WARNING
+  5  Algorithm-Generated/104.json                      4     1      A1@2  LATE_WARNING
+  6  Algorithm-Generated/105.json                      3     1      none  NO_WARNING
+  7  Algorithm-Generated/106.json                      2     1      none  NO_WARNING
+  8  Algorithm-Generated/107.json                      3     1      none  NO_WARNING
+  9  Algorithm-Generated/108.json                      4     3      none  NO_WARNING
+ 10  Algorithm-Generated/109.json                      4     1      A3@3  OTHER_AGENT_WARNING
+ 11  Algorithm-Generated/11.json                       4     2      none  NO_WARNING
+ 12  Algorithm-Generated/110.json                      4     1      none  NO_WARNING
+ 13  Algorithm-Generated/111.json                      4     3      none  NO_WARNING
+ 14  Algorithm-Generated/112.json                      4     2      A1@2  WARNING_AT_MISTAKE_ROUND
+ 15  Algorithm-Generated/113.json                      3     2      none  NO_WARNING
+ 16  Algorithm-Generated/114.json                      2     1      none  NO_WARNING
+ 17  Algorithm-Generated/115.json                      3     1      none  NO_WARNING
+ 18  Algorithm-Generated/116.json                      4     2      A3@2  OTHER_AGENT_WARNING
+ 19  Algorithm-Generated/117.json                      2     1      A2@2  OTHER_AGENT_WARNING
+ 20  Algorithm-Generated/118.json                      4     1      A3@2  OTHER_AGENT_WARNING
+ 21  Algorithm-Generated/119.json                      3     1      none  NO_WARNING
+ 22  Algorithm-Generated/120.json                      5     1      none  NO_WARNING
+ 23  Algorithm-Generated/121.json                      2     1      A2@2  LATE_WARNING
+ 24  Algorithm-Generated/122.json                      4     3      none  NO_WARNING
+ 25  Algorithm-Generated/123.json                      4     1      A2@3  OTHER_AGENT_WARNING
+ 26  Algorithm-Generated/13.json                       3     2      none  NO_WARNING
+ 27  Algorithm-Generated/15.json                       4     3      none  NO_WARNING
+ 28  Algorithm-Generated/16.json                       3     1      none  NO_WARNING
+ 29  Algorithm-Generated/17.json                       4     1      none  NO_WARNING
+ 30  Algorithm-Generated/18.json                       4     2      none  NO_WARNING
+ 31  Algorithm-Generated/19.json                       3     1      A1@2  LATE_WARNING
+ 32  Algorithm-Generated/2.json                        2     1      none  NO_WARNING
+ 33  Algorithm-Generated/22.json                       2     1      none  NO_WARNING
+ 34  Algorithm-Generated/23.json                       4     1      A2@3  OTHER_AGENT_WARNING
+ 35  Algorithm-Generated/25.json                       3     2      A3@2  LATE_WARNING
+ 36  Algorithm-Generated/26.json                       4     2      none  NO_WARNING
+ 37  Algorithm-Generated/27.json                       4     1      none  NO_WARNING
+ 38  Algorithm-Generated/28.json                       7     1      none  NO_WARNING
+ 39  Algorithm-Generated/3.json                        3     1      none  NO_WARNING
+ 40  Algorithm-Generated/30.json                       2     1      none  NO_WARNING
+ 41  Algorithm-Generated/31.json                       3     1      none  NO_WARNING
+ 42  Algorithm-Generated/32.json                       4     2      none  NO_WARNING
+ 43  Algorithm-Generated/34.json                       3     2      none  NO_WARNING
+ 44  Algorithm-Generated/36.json                       4     1      none  NO_WARNING
+ 45  Algorithm-Generated/37.json                       2     2      none  NO_WARNING
+ 46  Algorithm-Generated/39.json                       3     1      none  NO_WARNING
+ 47  Algorithm-Generated/4.json                        3     2      none  NO_WARNING
+ 48  Algorithm-Generated/40.json                       3     1      none  NO_WARNING
+ 49  Algorithm-Generated/42.json                       2     1      none  NO_WARNING
+ 50  Algorithm-Generated/43.json                       3     1      none  NO_WARNING
+ 51  Algorithm-Generated/44.json                       6     1      none  NO_WARNING
+ 52  Algorithm-Generated/45.json                       2     1      none  NO_WARNING
+ 53  Algorithm-Generated/46.json                       2     1      none  NO_WARNING
+ 54  Algorithm-Generated/48.json                       4     3      none  NO_WARNING
+ 55  Algorithm-Generated/5.json                        5     1      none  NO_WARNING
+ 56  Algorithm-Generated/51.json                       2     1      none  NO_WARNING
+ 57  Algorithm-Generated/52.json                       5     1      none  NO_WARNING
+ 58  Algorithm-Generated/54.json                       5     3      none  NO_WARNING
+ 59  Algorithm-Generated/56.json                       3     1      none  NO_WARNING
+ 60  Algorithm-Generated/57.json                       2     1      none  NO_WARNING
+ 61  Algorithm-Generated/59.json                       5     1      A2@2  OTHER_AGENT_WARNING
+ 62  Algorithm-Generated/6.json                        4     1      none  NO_WARNING
+ 63  Algorithm-Generated/60.json                       4     1      none  NO_WARNING
+ 64  Algorithm-Generated/63.json                       3     3      none  NO_WARNING
+ 65  Algorithm-Generated/64.json                       4     1      none  NO_WARNING
+ 66  Algorithm-Generated/67.json                       4     2      none  NO_WARNING
+ 67  Algorithm-Generated/71.json                       4     2      none  NO_WARNING
+ 68  Algorithm-Generated/73.json                       3     1      none  NO_WARNING
+ 69  Algorithm-Generated/74.json                       4     3      none  NO_WARNING
+ 70  Algorithm-Generated/75.json                       3     2      none  NO_WARNING
+ 71  Algorithm-Generated/76.json                       4     2      none  NO_WARNING
+ 72  Algorithm-Generated/77.json                       5     1      none  NO_WARNING
+ 73  Algorithm-Generated/79.json                       4     2      none  NO_WARNING
+ 74  Algorithm-Generated/8.json                        4     2      A3@2  WARNING_AT_MISTAKE_ROUND
+ 75  Algorithm-Generated/80.json                       3     1      A1@2  LATE_WARNING
+ 76  Algorithm-Generated/81.json                       3     1      none  NO_WARNING
+ 77  Algorithm-Generated/82.json                       2     2      none  NO_WARNING
+ 78  Algorithm-Generated/83.json                       4     2      none  NO_WARNING
+ 79  Algorithm-Generated/85.json                       4     1      none  NO_WARNING
+ 80  Algorithm-Generated/86.json                       3     1      none  NO_WARNING
+ 81  Algorithm-Generated/87.json                       3     1      none  NO_WARNING
+ 82  Algorithm-Generated/88.json                       5     1      A2@2  OTHER_AGENT_WARNING
+ 83  Algorithm-Generated/89.json                       3     2      A4@2  OTHER_AGENT_WARNING
+ 84  Algorithm-Generated/9.json                        2     1      none  NO_WARNING
+ 85  Algorithm-Generated/94.json                       4     1      none  NO_WARNING
+ 86  Algorithm-Generated/95.json                       4     4      A2@2  OTHER_AGENT_WARNING
+ 87  Algorithm-Generated/98.json                       2     1      none  NO_WARNING
+ 88  Algorithm-Generated/99.json                       4     1      none  NO_WARNING
+ 89  Hand-Crafted/14.json                              8     4      none  NO_WARNING
+ 90  Hand-Crafted/30.json                             28     1      A2@3  OTHER_AGENT_WARNING
+ 91  Hand-Crafted/51.json                             29     1      A2@2  LATE_WARNING
+----------------------------------------------------------------------------------------------------
+Outcome legend (culprit-centric: did the monitor flag the actual culprit, and when?)
+  EARLY_PREDICTION_SUCCESS  culprit flagged strictly before its mistake round
+  WARNING_AT_MISTAKE_ROUND  culprit flagged, but only at the mistake round itself
+  LATE_WARNING              culprit flagged, but only after the mistake round
+  OTHER_AGENT_WARNING       warnings fired, but never for the culprit
+  NO_WARNING                no agent ever crossed the threshold
+
+SWEEP SUMMARY
+----------------------------------------------------------------------------------------------------
+Files evaluated                          : 91
+Files with mistake at round 1            : 58 — early warning
+                                           impossible by construction (turn 1 IS the mistake;
+                                           there is no earlier turn to warn on)
+Evaluable files (mistake round >= 2)     : 33  (early-warning accuracy must be read among these)
+
+CULPRIT-CENTRIC EARLY-WARNING SCOREBOARD (did the monitor flag the actual
+culprit, and how early?)
+  EARLY_PREDICTION_SUCCESS (strict)      : 0/91 files (0.0%)  = 0/33 of evaluable (0.0%)
+  Culprit warned at the mistake round    : 2
+  Culprit warned late (after mistake)    : 6
+  Culprit agent warned at some point     : 8/91
+  Lenient early (strict + at-the-round)  : 2 (2.2%)
+Mean rounds per file                     : 4.07
+Mean danger prob at warning fire time    : 0.5500
+
+SIGNAL CEILING ANALYSIS — what the evidence channel permits at all
+----------------------------------------------------------------------------------------------------
+Culprit's pre-mistake rounds: P(ErrorFound) = 0.087   (4 hits / 46 agent-rounds)
+Culprit's at-mistake rounds : P(ErrorFound) = 0.198
+Culprit's post-mistake rounds: P(ErrorFound) = 0.198
+-> the mistake is a REASONING error: it only becomes visible in keywords
+   AFTER it has happened (at/post rates 2.3x the pre-rate). Among the
+   33 evaluable files, in 20 at least one agent's logs contain a
+   keyword strictly before the mistake round — the hard CEILING on strict
+   early warnings for ANY detector on this channel is therefore 20/33 (60.6%).
+
+THRESHOLD SWEEP (same engine, 0.3 -> 0.7; the operating point trades earliness
+against false alarms)
+ thresh  culprit@<mr  culprit@<=mr  culprit warned  any warn rate    mean lead strict
+   0.30            0             2              10         31.9%                   —
+   0.40            0             2               8         24.2%                   —
+   0.50            0             2               8         22.0%                   —
+   0.60            0             0               4         13.2%                   —
+   0.70            0             0               3          8.8%                   —
+
+INTERPRETATION
+----------------------------------------------------------------------------------------------------
+Phase 5 extends the project from post-mortem attribution (who broke?) to
+temporal monitoring (who is degrading — and can we say so BEFORE the crash?).
+The HMM converts a stream of noisy keyword flags into a drifting health
+belief per agent, and the sweep above shows how often that belief crosses
+the 0.50 danger threshold strictly before the ground-truth mistake round.
+
+Honest reading of the numbers:
+  1. mistake_step marks the FIRST faulty message, and the mistake is a
+     reasoning error: keywords virtually never appear BEFORE it
+     (P(Err|pre)=0.087 vs P(Err|at)=0.198). A warning AT the mistake round
+     is counted as NOT early here — a strict yardstick; the lenient count
+     (early + at-the-round) is also reported, and the ceiling analysis
+     shows what any detector could achieve on this evidence channel.
+  2. 58/91 files have their mistake at round 1 — structurally unpredictable.
+     Early-warning accuracy must be read among the 33 evaluable files.
+  3. Agents' HMMs are independent given the shared turn axis; there is no
+     cross-agent coupling — a deliberate simplification that keeps the
+     forward pass exact and O(T) per agent.
+  4. Transition/prior matrices are spec-tuned and emissions derive from the
+     Phase 3 learned sensor CPTs; no EM fitting (Baum-Welch) was run —
+     that is the natural next step.
+  5. Richer features (code-execution failures, tool errors, answer-flip
+     detection) would raise the ceiling substantially; keywords alone cap
+     strict earliness at the level reported above.
+
+====================================================================================================
+END OF PHASE 5 REPORT
+====================================================================================================

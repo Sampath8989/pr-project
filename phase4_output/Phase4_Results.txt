@@ -1,0 +1,167 @@
+====================================================================================================
+PHASE 4: CALIBRATION EVALUATION — ECE, BRIER SCORE & RELIABILITY DIAGRAM
+Who&When benchmark — 4-agent subset (the “honesty check” on the Phase 3 engine)
+====================================================================================================
+Files evaluated          : 91 (all files with exactly 4 unique agents)
+Files skipped by parser  : {'2_agents': 34, '3_agents': 54, '1_agents': 3, '5_agents': 2}
+Network (Phase 2/3)      : A1 -> A2 -> A3 -> A4 -> Final_Output  +  sensors A1->S1, A2->S2, A3->S3, A4->S4
+CPT learning             : Laplace-smoothed counting, alpha = 1.0, fit on the same 91 files
+Failure keywords         : error, traceback, exception, failed, invalid, timeout
+Decision rule            : predicted culprit = argmax_i P(Ai=Failed | S1..S4 evidence);
+                           confidence = that maximum posterior (ties -> earliest agent)
+Inference                : hand-rolled Variable Elimination (numpy only; no pgmpy),
+                           cross-checked against brute-force enumeration on every file
+                           (max |VE - brute force| = 4.441e-16)
+Protocol                 : in-sample (CPTs learned from all 91 files, engine then
+                           evaluated on those same 91 files, as specified for this phase)
+====================================================================================================
+
+HEADLINE METRICS
+----------------------------------------------------------------------------------------------------
+Overall accuracy                    : 40/91 = 0.4396 (44.0%)
+Mean confidence                     : 0.4393
+Expected Calibration Error (ECE-10) : 0.0237
+  (weighted avg of |accuracy - confidence| across 10 equal-width bins)
+Maximum Calibration Error (MCE)     : 0.0415
+Brier score (multiclass, A1..A4)    : 0.6694   [range 0..2 for 4 classes; normalized /2 = 0.3347]
+Brier score (top-label)             : 0.2361   [range 0..1; pairs with the reliability diagram]
+Baseline: always predict A1         : 40/91 = 44.0%  (most common mistake position)
+
+RELIABILITY TABLE (10 equal-width confidence bins)
+----------------------------------------------------------------------------------------------------
+Bin              n   Avg Conf   Accuracy    |Gap|   ECE contrib
+[0.0, 0.1)       0          —          —        —             —
+[0.1, 0.2)       0          —          —        —             —
+[0.2, 0.3)       0          —          —        —             —
+[0.3, 0.4)      53     0.3786     0.3585   0.0201        0.0117
+[0.4, 0.5)      22     0.4808     0.5000   0.0192        0.0047
+[0.5, 0.6)      16     0.5835     0.6250   0.0415        0.0073
+[0.6, 0.7)       0          —          —        —             —
+[0.7, 0.8)       0          —          —        —             —
+[0.8, 0.9)       0          —          —        —             —
+[0.9, 1.0]       0          —          —        —             —
+----------------------------------------------------------------------------------------------------
+ECE-10 = sum of the last column = 0.0237
+
+PER-FILE PREDICTION LOG (all files, engine run in dataset order)
+----------------------------------------------------------------------------------------------------
+  #  File                                                 Evid  Pred           Actual               OK?    Conf
+  1  Algorithm-Generated/1.json                           FFFF  A1 (Excel_Expert) A1 (Excel_Expert)    YES  0.3806
+  2  Algorithm-Generated/101.json                         FFFF  A1 (Tickets_Pricing_Expert) A1 (Tickets_Pricing_Expert) YES  0.3806
+  3  Algorithm-Generated/102.json                         FFFF  A1 (Filmography_Expert) A1 (Filmography_Expert) YES  0.3806
+  4  Algorithm-Generated/103.json                         TFTT  A1 (Eateries_Expert) A4 (DataVerification_Expert) no   0.4832
+  5  Algorithm-Generated/104.json                         TTTT  A1 (PythonDebugging_Expert) A1 (PythonDebugging_Expert) YES  0.5823
+  6  Algorithm-Generated/105.json                         FFFF  A1 (Local_Knowledge_Expert) A4 (Verification_Expert) no   0.3806
+  7  Algorithm-Generated/106.json                         FFFF  A1 (DataAnalysis_Expert) A1 (DataAnalysis_Expert) YES  0.3806
+  8  Algorithm-Generated/107.json                         FFTF  A1 (Genomics_Expert) A4 (Verification_Expert) no   0.3741
+  9  Algorithm-Generated/108.json                         FFFT  A1 (Corporate_Governance_Expert) A1 (Corporate_Governance_Expert) YES  0.3817
+ 10  Algorithm-Generated/109.json                         TFTT  A1 (Geography_Expert) A2 (Verification_Expert) no   0.4832
+ 11  Algorithm-Generated/11.json                          FFTT  A1 (Latin_American_Music_Expert) A3 (InformationVerification_Expert) no   0.3749
+ 12  Algorithm-Generated/110.json                         FFTT  A1 (DataCollection_Expert) A4 (Verification_Expert) no   0.3749
+ 13  Algorithm-Generated/111.json                         FFTF  A1 (DataAnalysis_Expert) A2 (Verification_Expert) no   0.3741
+ 14  Algorithm-Generated/112.json                         TTTT  A1 (HistoricalWeatherData_Expert) A1 (HistoricalWeatherData_Expert) YES  0.5823
+ 15  Algorithm-Generated/113.json                         FFTT  A1 (Hiking_Expert) A2 (Reviews_Expert)  no   0.3749
+ 16  Algorithm-Generated/114.json                         TTTF  A1 (DataAnalysis_Expert) A2 (Verification_Expert) no   0.5818
+ 17  Algorithm-Generated/115.json                         FFFF  A1 (ProblemSolving_Expert) A2 (Verification_Expert) no   0.3806
+ 18  Algorithm-Generated/116.json                         FFTF  A1 (DataAnalysis_Expert) A1 (DataAnalysis_Expert) YES  0.3741
+ 19  Algorithm-Generated/117.json                         TTTT  A1 (JSON_Expert) A1 (JSON_Expert)     YES  0.5823
+ 20  Algorithm-Generated/118.json                         FFTT  A1 (WeatherData_Expert) A2 (Statistics_Expert) no   0.3749
+ 21  Algorithm-Generated/119.json                         FTFF  A1 (Geometry_Expert) A1 (Geometry_Expert) YES  0.4754
+ 22  Algorithm-Generated/120.json                         TFTF  A1 (Food_Expert) A4 (Vegan_Food_Expert) no   0.4824
+ 23  Algorithm-Generated/121.json                         TTTT  A1 (JSON_Expert) A2 (Debugging_Expert) no   0.5823
+ 24  Algorithm-Generated/122.json                         TFTF  A1 (BingAPI_Expert) A1 (BingAPI_Expert)  YES  0.4824
+ 25  Algorithm-Generated/123.json                         FTTF  A1 (Karting_Expert) A4 (Paintball_Expert) no   0.4716
+ 26  Algorithm-Generated/13.json                          FFTT  A1 (ArtHistory_Expert) A1 (ArtHistory_Expert) YES  0.3749
+ 27  Algorithm-Generated/15.json                          FFTF  A1 (Boggle_Board_Expert) A1 (Boggle_Board_Expert) YES  0.3741
+ 28  Algorithm-Generated/16.json                          FFTF  A1 (Video_Analyst_Expert) A2 (Narration_Expert) no   0.3741
+ 29  Algorithm-Generated/17.json                          FFFF  A1 (MarineBiology_Expert) A4 (Statistics_Expert) no   0.3806
+ 30  Algorithm-Generated/18.json                          FFFT  A1 (Poetry_Expert) A1 (Poetry_Expert)   YES  0.3817
+ 31  Algorithm-Generated/19.json                          TTFT  A1 (Debugging_Problem_Solving_Expert) A1 (Debugging_Problem_Solving_Expert) YES  0.5862
+ 32  Algorithm-Generated/2.json                           FFFF  A1 (DataAnalysis_Expert) A3 (Verification_Expert) no   0.3806
+ 33  Algorithm-Generated/22.json                          TFFF  A1 (PythonDebugging_Expert) A1 (PythonDebugging_Expert) YES  0.4892
+ 34  Algorithm-Generated/23.json                          FTFT  A1 (Art_Historian_Expert) A3 (Church_Historian_Expert) no   0.4760
+ 35  Algorithm-Generated/25.json                          TFTT  A1 (ModelEvaluation_Interpretation_Expert) A1 (ModelEvaluation_Interpretation_Expert) YES  0.4832
+ 36  Algorithm-Generated/26.json                          FFFF  A1 (WomenInComputerScienceHistory_Expert) A1 (WomenInComputerScienceHistory_Expert) YES  0.3806
+ 37  Algorithm-Generated/27.json                          FFTF  A1 (MarioKart8Deluxe_Expert) A2 (DataVerification_Expert) no   0.3741
+ 38  Algorithm-Generated/28.json                          TFFT  A1 (WebServing_Expert) A3 (DataVerification_Expert) no   0.4904
+ 39  Algorithm-Generated/3.json                           TTFF  A1 (Python_Expert) A4 (Verification_Expert) no   0.5855
+ 40  Algorithm-Generated/30.json                          FFFF  A1 (AudioProcessing_Expert) A4 (Culinary_Expert) no   0.3806
+ 41  Algorithm-Generated/31.json                          FFTF  A1 (OpenCV_Expert) A4 (Verification_Expert) no   0.3741
+ 42  Algorithm-Generated/32.json                          FTFF  A1 (SpeciesSightingsData_Expert) A1 (SpeciesSightingsData_Expert) YES  0.4754
+ 43  Algorithm-Generated/34.json                          FFFF  A1 (CSVProcessing_Expert) A3 (Locomotive_Expert) no   0.3806
+ 44  Algorithm-Generated/36.json                          TTFF  A1 (ImageProcessing_Expert) A3 (ProblemSolving_Expert) no   0.5855
+ 45  Algorithm-Generated/37.json                          FTTF  A1 (Cubing_Expert) A1 (Cubing_Expert)   YES  0.4716
+ 46  Algorithm-Generated/39.json                          TFFF  A1 (AquaticEcosystems_InvasiveSpecies_Expert) A2 (GIS_DataAnalysis_Expert) no   0.4892
+ 47  Algorithm-Generated/4.json                           FFFF  A1 (HawaiiRealEstate_Expert) A1 (HawaiiRealEstate_Expert) YES  0.3806
+ 48  Algorithm-Generated/40.json                          FFTF  A1 (NumericalMethods_Expert) A4 (Verification_Expert) no   0.3741
+ 49  Algorithm-Generated/42.json                          FFFF  A1 (DemographicData_Expert) A2 (Verification_Expert) no   0.3806
+ 50  Algorithm-Generated/43.json                          FFFF  A1 (DataAnalysis_Expert) A1 (DataAnalysis_Expert) YES  0.3806
+ 51  Algorithm-Generated/44.json                          FFTF  A1 (Web_Design_Expert) A2 (WebDevelopment_Expert) no   0.3741
+ 52  Algorithm-Generated/45.json                          FFFF  A1 (DataAnalysis_Expert) A2 (PublicationData_Expert) no   0.3806
+ 53  Algorithm-Generated/46.json                          FFFF  A1 (LogicExpert) A2 (Behavioral_Expert) no   0.3806
+ 54  Algorithm-Generated/48.json                          FTFF  A1 (Geometry_Expert) A1 (Geometry_Expert) YES  0.4754
+ 55  Algorithm-Generated/5.json                           FFFT  A1 (WebServing_Expert) A4 (DataVerification_Expert) no   0.3817
+ 56  Algorithm-Generated/51.json                          TFFF  A1 (PythonDebugging_Expert) A1 (PythonDebugging_Expert) YES  0.4892
+ 57  Algorithm-Generated/52.json                          FFTF  A1 (ISBNCheckDigit_Expert) A1 (ISBNCheckDigit_Expert) YES  0.3741
+ 58  Algorithm-Generated/54.json                          FFFF  A1 (Clinical_Trial_Data_Analysis_Expert) A1 (Clinical_Trial_Data_Analysis_Expert) YES  0.3806
+ 59  Algorithm-Generated/56.json                          FFFF  A1 (AlgorithmDesign_Expert) A4 (Validation_Expert) no   0.3806
+ 60  Algorithm-Generated/57.json                          FFFF  A1 (TextExtraction_Expert) A1 (TextExtraction_Expert) YES  0.3806
+ 61  Algorithm-Generated/59.json                          TTFF  A1 (DataExtraction_Expert) A1 (DataExtraction_Expert) YES  0.5855
+ 62  Algorithm-Generated/6.json                           FFFF  A1 (NorseMythology_Expert) A2 (Literary_Analysis_Expert) no   0.3806
+ 63  Algorithm-Generated/60.json                          FFFF  A1 (RealityTV_Historian_Expert) A3 (DataAnalysis_Expert) no   0.3806
+ 64  Algorithm-Generated/63.json                          TFFF  A1 (MusicTheory_Expert) A1 (MusicTheory_Expert) YES  0.4892
+ 65  Algorithm-Generated/64.json                          TFTF  A1 (Whitney_Collection_Expert) A2 (MilitaryHistory_Expert) no   0.4824
+ 66  Algorithm-Generated/67.json                          FFTT  A1 (MarineLifeData_Expert) A3 (Verification_Expert) no   0.3749
+ 67  Algorithm-Generated/71.json                          FFFF  A1 (DataExtraction_Expert) A1 (DataExtraction_Expert) YES  0.3806
+ 68  Algorithm-Generated/73.json                          FFFF  A1 (DoctorWhoScript_Expert) A2 (VideoAnalysis_Expert) no   0.3806
+ 69  Algorithm-Generated/74.json                          FTFF  A1 (MerriamWebsterWordOfTheDay_Historian_Expert) A1 (MerriamWebsterWordOfTheDay_Historian_Expert) YES  0.4754
+ 70  Algorithm-Generated/75.json                          FFFF  A1 (Data_Collection_Expert) A1 (Data_Collection_Expert) YES  0.3806
+ 71  Algorithm-Generated/76.json                          TFTF  A1 (Baseball_Expert) A2 (Validation_Expert) no   0.4824
+ 72  Algorithm-Generated/77.json                          TTTF  A1 (YouTubeDownload_Expert) A1 (YouTubeDownload_Expert) YES  0.5818
+ 73  Algorithm-Generated/79.json                          FTFF  A1 (WaybackMachine_Expert) A1 (WaybackMachine_Expert) YES  0.4754
+ 74  Algorithm-Generated/8.json                           TTTT  A1 (Excel_Expert) A3 (AlgorithmDesign_Expert) no   0.5823
+ 75  Algorithm-Generated/80.json                          TTTT  A1 (PythonDebugging_Expert) A1 (PythonDebugging_Expert) YES  0.5823
+ 76  Algorithm-Generated/81.json                          FFFF  A1 (Fashion_Vogue_Expert) A4 (DataVerification_Expert) no   0.3806
+ 77  Algorithm-Generated/82.json                          FFFF  A1 (Marathon_Expert) A1 (Marathon_Expert) YES  0.3806
+ 78  Algorithm-Generated/83.json                          FFTT  A1 (StatisticalAnalysis_Expert) A2 (DataAnalysis_Expert) no   0.3749
+ 79  Algorithm-Generated/85.json                          TFTF  A1 (WebServing_Expert) A4 (BenAndJerrysFlavors_Expert) no   0.4824
+ 80  Algorithm-Generated/86.json                          TTTT  A1 (Library_Database_Expert) A1 (Library_Database_Expert) YES  0.5823
+ 81  Algorithm-Generated/87.json                          FFFT  A1 (MusicHistorian_Expert) A2 (Music_Critic_Expert) no   0.3817
+ 82  Algorithm-Generated/88.json                          TTTF  A1 (FinancialData_Expert) A1 (FinancialData_Expert) YES  0.5818
+ 83  Algorithm-Generated/89.json                          FFTT  A1 (Baseball_Historian_Expert) A2 (Validation_Expert) no   0.3749
+ 84  Algorithm-Generated/9.json                           FFFF  A1 (AlgorithmDesign_Expert) A2 (GameTheory_Expert) no   0.3806
+ 85  Algorithm-Generated/94.json                          FFFF  A1 (BirdSpeciesIdentification_Expert) A4 (AnimalBehavior_Expert) no   0.3806
+ 86  Algorithm-Generated/95.json                          TTFF  A1 (AcademicPublication_Expert) A1 (AcademicPublication_Expert) YES  0.5855
+ 87  Algorithm-Generated/98.json                          FFFF  A1 (TheoreticalChemistry_Expert) A2 (Probability_Expert) no   0.3806
+ 88  Algorithm-Generated/99.json                          FFFF  A1 (Ticket_Pricing_Expert) A3 (Verification_Expert) no   0.3806
+ 89  Hand-Crafted/14.json                                 FFFF  A1 (Orchestrator) A1 (Orchestrator)    YES  0.3806
+ 90  Hand-Crafted/30.json                                 FTTF  A1 (Orchestrator) A4 (Assistant)       no   0.4716
+ 91  Hand-Crafted/51.json                                 TTFT  A1 (Orchestrator) A2 (FileSurfer)      no   0.5862
+
+====================================================================================================
+INTERPRETATION (the honesty check)
+====================================================================================================
+Verdict : WELL CALIBRATED — when the engine says “X% sure” it is right about X% of the time.
+        : Mean confidence (0.439) and accuracy (0.440) are close → no strong global bias.
+        : Predictions land in 3 of 10 confidence bins ([0.3, 0.4), [0.4, 0.5), [0.5, 0.6));
+          per-bin counts → [0.3, 0.4): n=53, [0.4, 0.5): n=22, [0.5, 0.6): n=16.
+        : DECISION-RULE NOTE — the argmax rule selected A1 on ALL 91 files, so
+          decision accuracy coincides with the always-A1 baseline. The network’s value
+          is in the calibrated CONFIDENCE, not in flipping the hard label: files whose
+          sensors all fire (TTTT) are predicted with ~58% confidence and are ~62.5%
+          accurate, while no-evidence (FFFF) files get ~38% confidence and are ~36%
+          accurate — the probability spread tracks reality even though the argmax label
+          does not move. This is exactly what the reliability diagram visualises.
+Caveats :
+  1. With 91 files and argmax posteriors that cluster in few bins, the 10-bin
+     reliability estimate is coarse — each populated bin averages only 30.3 files.
+  2. In-sample protocol: CPTs were learned from these same files, so these numbers
+     characterize the engine’s evidence channel on the benchmark, not generalisation.
+  3. The Brier score is reported for the full posterior (multiclass) and for the
+     argmax prediction (top-label); both are proper scoring rules — lower is better.
+  4. A low ECE with a narrow confidence range means the engine is honest *within*
+     that range only; see the reliability diagram for the visual check.
+
+====================================================================================================
+END OF PHASE 4 REPORT
+====================================================================================================
