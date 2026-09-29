@@ -1,0 +1,150 @@
+{
+  "training_traces": 2004,
+  "training_questions": 58,
+  "metrics": {
+    "Algorithm-Generated": {
+      "traces": 126,
+      "correct_agent": 62,
+      "agent_accuracy": 0.49206349206349204,
+      "correct_step": 36,
+      "step_accuracy": 0.2857142857142857,
+      "correct_both": 33,
+      "joint_accuracy": 0.2619047619047619,
+      "agent_accuracy_95pct_bootstrap_interval": [
+        0.40476190476190477,
+        0.5793650793650794
+      ],
+      "step_accuracy_95pct_bootstrap_interval": [
+        0.20634920634920634,
+        0.36507936507936506
+      ]
+    },
+    "Hand-Crafted": {
+      "traces": 58,
+      "correct_agent": 37,
+      "agent_accuracy": 0.6379310344827587,
+      "correct_step": 10,
+      "step_accuracy": 0.1724137931034483,
+      "correct_both": 8,
+      "joint_accuracy": 0.13793103448275862,
+      "agent_accuracy_95pct_bootstrap_interval": [
+        0.5172413793103449,
+        0.7586206896551724
+      ],
+      "step_accuracy_95pct_bootstrap_interval": [
+        0.08620689655172414,
+        0.27586206896551724
+      ]
+    },
+    "Overall": {
+      "traces": 184,
+      "correct_agent": 99,
+      "agent_accuracy": 0.5380434782608695,
+      "correct_step": 46,
+      "step_accuracy": 0.25,
+      "correct_both": 41,
+      "joint_accuracy": 0.22282608695652173
+    }
+  },
+  "selected_l2": 0.45,
+  "external_group_cv_tuning": {
+    "0.25": {
+      "metrics": {
+        "Algorithm-Generated": {
+          "traces": 989,
+          "correct_agent": 747,
+          "agent_accuracy": 0.7553083923154702,
+          "correct_step": 609,
+          "step_accuracy": 0.6157735085945399,
+          "correct_both": 594,
+          "joint_accuracy": 0.6006066734074823
+        },
+        "Hand-Crafted": {
+          "traces": 1015,
+          "correct_agent": 724,
+          "agent_accuracy": 0.7133004926108374,
+          "correct_step": 580,
+          "step_accuracy": 0.5714285714285714,
+          "correct_both": 557,
+          "joint_accuracy": 0.548768472906404
+        },
+        "Overall": {
+          "traces": 2004,
+          "correct_agent": 1471,
+          "agent_accuracy": 0.7340319361277445,
+          "correct_step": 1189,
+          "step_accuracy": 0.593313373253493,
+          "correct_both": 1151,
+          "joint_accuracy": 0.5743512974051896
+        }
+      },
+      "selection_score_macro_subset_agent_step": 0.6639527412373547
+    },
+    "0.35": {
+      "metrics": {
+        "Algorithm-Generated": {
+          "traces": 989,
+          "correct_agent": 747,
+          "agent_accuracy": 0.7553083923154702,
+          "correct_step": 607,
+          "step_accuracy": 0.6137512639029322,
+          "correct_both": 593,
+          "joint_accuracy": 0.5995955510616785
+        },
+        "Hand-Crafted": {
+          "traces": 1015,
+          "correct_agent": 722,
+          "agent_accuracy": 0.7113300492610838,
+          "correct_step": 585,
+          "step_accuracy": 0.5763546798029556,
+          "correct_both": 554,
+          "joint_accuracy": 0.5458128078817734
+        },
+        "Overall": {
+          "traces": 2004,
+          "correct_agent": 1469,
+          "agent_accuracy": 0.7330339321357285,
+          "correct_step": 1192,
+          "step_accuracy": 0.5948103792415169,
+          "correct_both": 1147,
+          "joint_accuracy": 0.5723552894211577
+        }
+      },
+      "selection_score_macro_subset_agent_step": 0.6641860963206104
+    },
+    "0.45": {
+      "metrics": {
+        "Algorithm-Generated": {
+          "traces": 989,
+          "correct_agent": 744,
+          "agent_accuracy": 0.7522750252780587,
+          "correct_step": 606,
+          "step_accuracy": 0.6127401415571284,
+          "correct_both": 591,
+          "joint_accuracy": 0.5975733063700708
+        },
+        "Hand-Crafted": {
+          "traces": 1015,
+          "correct_agent": 727,
+          "agent_accuracy": 0.716256157635468,
+          "correct_step": 585,
+          "step_accuracy": 0.5763546798029556,
+          "correct_both": 551,
+          "joint_accuracy": 0.5428571428571428
+        },
+        "Overall": {
+          "traces": 2004,
+          "correct_agent": 1471,
+          "agent_accuracy": 0.7340319361277445,
+          "correct_step": 1191,
+          "step_accuracy": 0.594311377245509,
+          "correct_both": 1142,
+          "joint_accuracy": 0.5698602794411177
+        }
+      },
+      "selection_score_macro_subset_agent_step": 0.6644065010684026
+    }
+  },
+  "protocol": "External StepFinder training only; exact and semantic near-duplicate question filters; five-fold question-group CV selects L2 on external data; strict exact agent and raw-step scoring on all 184 original Who&When traces.",
+  "limitations": "The benchmark corpus and external training corpus derive from related task sources. The original Who&When has been inspected during project development; this is not an independently collected test set; paper evaluator details may differ."
+}

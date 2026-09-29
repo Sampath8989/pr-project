@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": {
+    "step_predictions_cover_all_source_traces": true,
+    "Algorithm-Generated_scores_recomputed": true,
+    "Hand-Crafted_scores_recomputed": true,
+    "Overall_scores_recomputed": true,
+    "step_probability_vectors_valid": true,
+    "nested_predictions_cover_all_four_agent_traces": true,
+    "question_groups_stay_in_one_outer_fold": true,
+    "hybrid_test_rows_match_frozen_split": true,
+    "nested_bn_accuracy_recomputed": true,
+    "nested_hybrid_accuracy_recomputed": true,
+    "test_bn_accuracy_recomputed": true,
+    "test_hybrid_accuracy_recomputed": true,
+    "hybrid_probabilities_valid": true
+  }
+}

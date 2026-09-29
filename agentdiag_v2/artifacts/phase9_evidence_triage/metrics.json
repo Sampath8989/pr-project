@@ -1,0 +1,7 @@
+{
+  "test_count": 13,
+  "top_one_correct": 5,
+  "top_two_contains_actual": 10,
+  "top_two_coverage": 0.7692307692307693,
+  "interpretation": "Top-two coverage measures shortlist usefulness, not automatic attribution accuracy."
+}

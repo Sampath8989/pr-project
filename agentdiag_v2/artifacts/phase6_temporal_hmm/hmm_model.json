@@ -1,0 +1,144 @@
+{
+  "model": {
+    "states": [
+      "Healthy",
+      "Slipping",
+      "Failed"
+    ],
+    "features": [
+      "error",
+      "uncertain",
+      "correction"
+    ],
+    "alpha": 2.0,
+    "initial": [
+      0.771712158808933,
+      0.07196029776674938,
+      0.15632754342431762
+    ],
+    "transition": [
+      [
+        0.956687898089172,
+        0.04076433121019108,
+        0.0025477707006369425
+      ],
+      [
+        0.031746031746031744,
+        0.031746031746031744,
+        0.9365079365079365
+      ],
+      [
+        0.006211180124223602,
+        0.006211180124223602,
+        0.9875776397515528
+      ]
+    ],
+    "emission_p_true": {
+      "error": [
+        0.11770244821092278,
+        0.11475409836065574,
+        0.1415525114155251
+      ],
+      "uncertain": [
+        0.03672316384180791,
+        0.04918032786885246,
+        0.0593607305936073
+      ],
+      "correction": [
+        0.17419962335216574,
+        0.32786885245901637,
+        0.1963470319634703
+      ]
+    },
+    "state_training_counts": [
+      1058,
+      57,
+      434
+    ],
+    "note": "States are training proxies derived from annotated mistake steps, not observed ground-truth health states."
+  },
+  "selected_threshold": 0.25,
+  "validation_threshold_sweep": [
+    {
+      "threshold": 0.25,
+      "score": 0.21428571428571427,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 3,
+      "early_recall_eligible": 0.25,
+      "false_agent_warning_traces": 13,
+      "false_agent_warning_rate": 1.0,
+      "mean_lead_messages": 2.3333333333333335
+    },
+    {
+      "threshold": 0.35,
+      "score": 0.0,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 0,
+      "early_recall_eligible": 0.0,
+      "false_agent_warning_traces": 2,
+      "false_agent_warning_rate": 0.15384615384615385,
+      "mean_lead_messages": null
+    },
+    {
+      "threshold": 0.45,
+      "score": 0.0,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 0,
+      "early_recall_eligible": 0.0,
+      "false_agent_warning_traces": 1,
+      "false_agent_warning_rate": 0.07692307692307693,
+      "mean_lead_messages": null
+    },
+    {
+      "threshold": 0.55,
+      "score": 0.0,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 0,
+      "early_recall_eligible": 0.0,
+      "false_agent_warning_traces": 0,
+      "false_agent_warning_rate": 0.0,
+      "mean_lead_messages": null
+    },
+    {
+      "threshold": 0.65,
+      "score": 0.0,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 0,
+      "early_recall_eligible": 0.0,
+      "false_agent_warning_traces": 0,
+      "false_agent_warning_rate": 0.0,
+      "mean_lead_messages": null
+    },
+    {
+      "threshold": 0.75,
+      "score": 0.0,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 0,
+      "early_recall_eligible": 0.0,
+      "false_agent_warning_traces": 0,
+      "false_agent_warning_rate": 0.0,
+      "mean_lead_messages": null
+    },
+    {
+      "threshold": 0.85,
+      "score": 0.0,
+      "total": 13,
+      "eligible": 12,
+      "correct_early": 0,
+      "early_recall_eligible": 0.0,
+      "false_agent_warning_traces": 0,
+      "false_agent_warning_rate": 0.0,
+      "mean_lead_messages": null
+    }
+  ],
+  "train_excluded_ambiguous_steps": 16,
+  "validation_excluded_ambiguous_steps": 0,
+  "test_excluded_ambiguous_steps": 1,
+  "forward_brute_force_max_difference": 0.0
+}

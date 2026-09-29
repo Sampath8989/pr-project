@@ -1,0 +1,97 @@
+[
+  {
+    "id": "Algorithm-Generated/14.json",
+    "mistake_step": 2,
+    "culprit": "Culinary_Awards_Expert"
+  },
+  {
+    "id": "Algorithm-Generated/15.json",
+    "mistake_step": 6,
+    "culprit": "Boggle_Board_Expert"
+  },
+  {
+    "id": "Algorithm-Generated/59.json",
+    "mistake_step": 1,
+    "culprit": "DataExtraction_Expert"
+  },
+  {
+    "id": "Hand-Crafted/10.json",
+    "mistake_step": 9,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/16.json",
+    "mistake_step": 15,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/19.json",
+    "mistake_step": 50,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/20.json",
+    "mistake_step": 3,
+    "culprit": "WebSurfer"
+  },
+  {
+    "id": "Hand-Crafted/22.json",
+    "mistake_step": 4,
+    "culprit": "FileSurfer"
+  },
+  {
+    "id": "Hand-Crafted/24.json",
+    "mistake_step": 1,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/25.json",
+    "mistake_step": 18,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/31.json",
+    "mistake_step": 9,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/36.json",
+    "mistake_step": 9,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/42.json",
+    "mistake_step": 29,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/45.json",
+    "mistake_step": 20,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/47.json",
+    "mistake_step": 51,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/49.json",
+    "mistake_step": 12,
+    "culprit": "WebSurfer"
+  },
+  {
+    "id": "Hand-Crafted/58.json",
+    "mistake_step": 22,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/6.json",
+    "mistake_step": 5,
+    "culprit": "Orchestrator"
+  },
+  {
+    "id": "Hand-Crafted/9.json",
+    "mistake_step": 25,
+    "culprit": "Orchestrator"
+  }
+]

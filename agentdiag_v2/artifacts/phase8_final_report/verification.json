@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "checks": {
+    "all_ten_phase_reports_exist": true,
+    "all_source_records_accounted_for": true,
+    "trace_splits_disjoint": true,
+    "question_groups_do_not_leak": true,
+    "test_predictions_only_test_traces": true,
+    "every_test_agent_count_evaluated": true,
+    "all_test_probabilities_valid": true,
+    "headline_metrics_recomputed": true,
+    "missing_scenarios_valid": true,
+    "complete_mask_matches_calibrated_prediction": true,
+    "review_packets_match_predictions": true,
+    "review_excerpts_have_valid_source_indices": true,
+    "review_top_two_metric_recomputed": true,
+    "warning_labels_consistent": true,
+    "reliability_figure_exists": true,
+    "saved_model_and_calibrator_exist": true,
+    "final_presentation_contains_measured_results": true
+  },
+  "test_predictions": 13,
+  "temporal_test_traces": 12
+}

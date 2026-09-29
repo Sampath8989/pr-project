@@ -1,0 +1,77 @@
+[
+  {
+    "agent_count": 1,
+    "directed_edges": 0,
+    "trace_count": 1
+  },
+  {
+    "agent_count": 1,
+    "directed_edges": 1,
+    "trace_count": 2
+  },
+  {
+    "agent_count": 2,
+    "directed_edges": 1,
+    "trace_count": 2
+  },
+  {
+    "agent_count": 2,
+    "directed_edges": 2,
+    "trace_count": 21
+  },
+  {
+    "agent_count": 2,
+    "directed_edges": 3,
+    "trace_count": 10
+  },
+  {
+    "agent_count": 2,
+    "directed_edges": 4,
+    "trace_count": 1
+  },
+  {
+    "agent_count": 3,
+    "directed_edges": 4,
+    "trace_count": 22
+  },
+  {
+    "agent_count": 3,
+    "directed_edges": 5,
+    "trace_count": 28
+  },
+  {
+    "agent_count": 3,
+    "directed_edges": 6,
+    "trace_count": 4
+  },
+  {
+    "agent_count": 4,
+    "directed_edges": 4,
+    "trace_count": 4
+  },
+  {
+    "agent_count": 4,
+    "directed_edges": 5,
+    "trace_count": 21
+  },
+  {
+    "agent_count": 4,
+    "directed_edges": 6,
+    "trace_count": 35
+  },
+  {
+    "agent_count": 4,
+    "directed_edges": 7,
+    "trace_count": 24
+  },
+  {
+    "agent_count": 4,
+    "directed_edges": 8,
+    "trace_count": 7
+  },
+  {
+    "agent_count": 5,
+    "directed_edges": 8,
+    "trace_count": 2
+  }
+]

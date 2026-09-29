@@ -1,0 +1,12 @@
+{
+  "phase0": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase0_protocol/Phase0_Results.md",
+  "phase1": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase1_parsing/Phase1_Results.md",
+  "phase2": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase2_evidence_baselines/Phase2_Results.md",
+  "phase3": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase3_bayesian_inference/Phase3_Results.md",
+  "phase4": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase4_missing_evidence/Phase4_Results.md",
+  "phase5": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase5_calibration_evaluation/Phase5_Results.md",
+  "phase6": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase6_temporal_hmm/Phase6_Results.md",
+  "phase7": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase7_multimodal_scope/Phase7_Results.md",
+  "phase9": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase9_evidence_triage/Phase9_Results.md",
+  "phase8": "/home/shiva/sem5/pr/project/agentdiag_v2/artifacts/phase8_final_report/Final_Report.md"
+}

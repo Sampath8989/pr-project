@@ -1,0 +1,98 @@
+{
+  "0.25": {
+    "metrics": {
+      "Algorithm-Generated": {
+        "traces": 989,
+        "correct_agent": 747,
+        "agent_accuracy": 0.7553083923154702,
+        "correct_step": 609,
+        "step_accuracy": 0.6157735085945399,
+        "correct_both": 594,
+        "joint_accuracy": 0.6006066734074823
+      },
+      "Hand-Crafted": {
+        "traces": 1015,
+        "correct_agent": 724,
+        "agent_accuracy": 0.7133004926108374,
+        "correct_step": 580,
+        "step_accuracy": 0.5714285714285714,
+        "correct_both": 557,
+        "joint_accuracy": 0.548768472906404
+      },
+      "Overall": {
+        "traces": 2004,
+        "correct_agent": 1471,
+        "agent_accuracy": 0.7340319361277445,
+        "correct_step": 1189,
+        "step_accuracy": 0.593313373253493,
+        "correct_both": 1151,
+        "joint_accuracy": 0.5743512974051896
+      }
+    },
+    "selection_score_macro_subset_agent_step": 0.6639527412373547
+  },
+  "0.35": {
+    "metrics": {
+      "Algorithm-Generated": {
+        "traces": 989,
+        "correct_agent": 747,
+        "agent_accuracy": 0.7553083923154702,
+        "correct_step": 607,
+        "step_accuracy": 0.6137512639029322,
+        "correct_both": 593,
+        "joint_accuracy": 0.5995955510616785
+      },
+      "Hand-Crafted": {
+        "traces": 1015,
+        "correct_agent": 722,
+        "agent_accuracy": 0.7113300492610838,
+        "correct_step": 585,
+        "step_accuracy": 0.5763546798029556,
+        "correct_both": 554,
+        "joint_accuracy": 0.5458128078817734
+      },
+      "Overall": {
+        "traces": 2004,
+        "correct_agent": 1469,
+        "agent_accuracy": 0.7330339321357285,
+        "correct_step": 1192,
+        "step_accuracy": 0.5948103792415169,
+        "correct_both": 1147,
+        "joint_accuracy": 0.5723552894211577
+      }
+    },
+    "selection_score_macro_subset_agent_step": 0.6641860963206104
+  },
+  "0.45": {
+    "metrics": {
+      "Algorithm-Generated": {
+        "traces": 989,
+        "correct_agent": 744,
+        "agent_accuracy": 0.7522750252780587,
+        "correct_step": 606,
+        "step_accuracy": 0.6127401415571284,
+        "correct_both": 591,
+        "joint_accuracy": 0.5975733063700708
+      },
+      "Hand-Crafted": {
+        "traces": 1015,
+        "correct_agent": 727,
+        "agent_accuracy": 0.716256157635468,
+        "correct_step": 585,
+        "step_accuracy": 0.5763546798029556,
+        "correct_both": 551,
+        "joint_accuracy": 0.5428571428571428
+      },
+      "Overall": {
+        "traces": 2004,
+        "correct_agent": 1471,
+        "agent_accuracy": 0.7340319361277445,
+        "correct_step": 1191,
+        "step_accuracy": 0.594311377245509,
+        "correct_both": 1142,
+        "joint_accuracy": 0.5698602794411177
+      }
+    },
+    "selection_score_macro_subset_agent_step": 0.6644065010684026
+  }
+}

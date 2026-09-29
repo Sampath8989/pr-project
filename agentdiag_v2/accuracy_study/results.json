@@ -1,0 +1,20 @@
+{
+  "protocol": "Five question-group folds on all supplied traces; train on four-agent and other agent-count traces, evaluate only four-agent traces.",
+  "seed": 4929,
+  "fold_count": 5,
+  "model_selection_note": "This is an exploratory comparison. Ranker settings were investigated after the original test set had been inspected.",
+  "bn": {
+    "n": 91,
+    "correct": 40,
+    "accuracy": 0.43956043956043955,
+    "brier": 0.6957396194830706,
+    "log_loss": 1.2568035947101
+  },
+  "text_ranker": {
+    "n": 91,
+    "correct": 33,
+    "accuracy": 0.3626373626373626,
+    "brier": 0.6540250802666812,
+    "log_loss": 1.099652911774254
+  }
+}

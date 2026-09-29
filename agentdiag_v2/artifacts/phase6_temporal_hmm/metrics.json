@@ -1,0 +1,20 @@
+{
+  "hmm": {
+    "total": 12,
+    "eligible": 10,
+    "correct_early": 2,
+    "early_recall_eligible": 0.2,
+    "false_agent_warning_traces": 11,
+    "false_agent_warning_rate": 0.9166666666666666,
+    "mean_lead_messages": 6.5
+  },
+  "keyword_baseline": {
+    "total": 12,
+    "eligible": 10,
+    "correct_early": 1,
+    "early_recall_eligible": 0.1,
+    "false_agent_warning_traces": 6,
+    "false_agent_warning_rate": 0.5,
+    "mean_lead_messages": 6.0
+  }
+}
