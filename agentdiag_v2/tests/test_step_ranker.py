@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_saved_step_model_does_not_read_labels(tmp_path):
-    source = ROOT / "Agents_Failure_Attribution" / "Who&When" / "Algorithm-Generated" / "121.json"
+    source = ROOT / "agentdiag_v2" / "data" / "Who&When" / "Algorithm-Generated" / "121.json"
     raw = json.loads(source.read_text())
     model = json.loads((ROOT / "agentdiag_v2" / "benchmark_step" / "step_model.json").read_text())
     with_label = parse_unlabeled(source)

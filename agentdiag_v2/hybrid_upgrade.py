@@ -20,7 +20,7 @@ from agentdiag_v2.src.step_ranker import predict as step_predict
 
 
 HERE = Path(__file__).resolve().parent
-DATASET = HERE.parent / "Agents_Failure_Attribution" / "Who&When"
+DATASET = HERE / "data" / "Who&When"
 STEP_MODEL = HERE / "benchmark_step" / "step_model.json"
 SPLITS = HERE / "artifacts" / "phase0_protocol" / "splits.json"
 OUTPUT = HERE / "hybrid_upgrade"

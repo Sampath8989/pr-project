@@ -26,7 +26,7 @@ from agentdiag_v2.src.triage import packet
 
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_DATA = HERE.parent / "Agents_Failure_Attribution" / "Who&When"
+DEFAULT_DATA = HERE / "data" / "Who&When"
 
 
 def phase_dir(output: Path, number: int, name: str) -> Path:
@@ -104,7 +104,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               f"- Primary experiment: four-agent traces; counts by split: {split_counts}.\n"
               "- Post-mortem attribution uses full logs. Early warning uses only messages observed so far.\n"
               "- Model/calibration/threshold selection never uses test labels.\n")
-    paths["phase0"] = str(p0 / "Phase0_Results.md")
+    paths["phase0"] = str((p0 / "Phase0_Results.md").relative_to(output))
 
     # Phase 1: clean records, graph summary.
     p1 = phase_dir(output, 1, "parsing")
@@ -127,7 +127,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               "Exceptions are retained and audited.\n"
               f"- Agent counts: {dict(Counter(len(r['agents']) for r in records))}.\n"
               "- Speaker-transition graph counts are descriptive, not claimed causal edges.\n")
-    paths["phase1"] = str(p1 / "Phase1_Results.md")
+    paths["phase1"] = str((p1 / "Phase1_Results.md").relative_to(output))
 
     # Phase 2: features and honest simple baselines.
     p2 = phase_dir(output, 2, "evidence_baselines")
@@ -158,7 +158,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               f"- Four-agent validation n={len(val4)}; test n={len(test4)}.\n"
               + "\n".join(metric_line(kind + " (test)", baseline_metrics[kind]["test_4agent"])
                           for kind in baseline_metrics) + "\n")
-    paths["phase2"] = str(p2 / "Phase2_Results.md")
+    paths["phase2"] = str((p2 / "Phase2_Results.md").relative_to(output))
 
     # Phase 3: choose evidence-set on validation, fit all available agent counts.
     p3 = phase_dir(output, 3, "bayesian_inference")
@@ -199,7 +199,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               f"Brier {val_metric['brier']:.3f}.\n"
               f"- VE versus independent joint enumeration: maximum difference {max_diff:.3g}.\n"
               "- All posterior vectors sum to 1. Small agent-count groups use prior-only fallback.\n")
-    paths["phase3"] = str(p3 / "Phase3_Results.md")
+    paths["phase3"] = str((p3 / "Phase3_Results.md").relative_to(output))
 
     # Fit the validation-only calibrator before all held-out scenarios.
     temperature = fit_temperature(val_predictions)
@@ -229,7 +229,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               + "\n".join(metric_line(name, metric) for name, metric in missing_metrics.items())
               + "\n\nMissing evidence is marginalized by VE; it is not treated as a clean log. "
                 "Every scenario uses the validation-fitted temperature. Masks are fixed by the recorded seed.\n")
-    paths["phase4"] = str(p4 / "Phase4_Results.md")
+    paths["phase4"] = str((p4 / "Phase4_Results.md").relative_to(output))
 
     # Phase 5: validation-set calibration and untouched test-set evaluation.
     p5 = phase_dir(output, 5, "calibration_evaluation")
@@ -257,7 +257,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               f"- Exploratory uncalibrated test breakdown by agent count: "
               + ", ".join(f"{n} agents {v['correct']}/{v['n']}" for n, v in exploratory_by_count.items()) + ".\n"
               "- This is a small held-out subset; literature scores are not directly comparable without a matched protocol.\n")
-    paths["phase5"] = str(p5 / "Phase5_Results.md")
+    paths["phase5"] = str((p5 / "Phase5_Results.md").relative_to(output))
 
     # Phase 6: temporal model fitted on train, threshold tuned on validation.
     p6 = phase_dir(output, 6, "temporal_hmm")
@@ -296,7 +296,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               f"wrong-agent warning traces: {keyword_summary['false_agent_warning_traces']}/{keyword_summary['total']}.\n"
               f"- Forward versus brute-force max difference: {hmm_diff:.3g}.\n"
               "- A fitted HMM does not establish early-warning usefulness unless these held-out results support it.\n")
-    paths["phase6"] = str(p6 / "Phase6_Results.md")
+    paths["phase6"] = str((p6 / "Phase6_Results.md").relative_to(output))
 
     # Phase 7: explicit modality evidence audit; no synthetic multimodal claims.
     p7 = phase_dir(output, 7, "multimodal_scope")
@@ -324,7 +324,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               f"labeled traces with such fields: {multimodal_trace_count}.\n"
               "- This project is reported as **multi-agent**, matching the PPT's technical scope. "
               "A separate modality-specific performance claim is not made.\n")
-    paths["phase7"] = str(p7 / "Phase7_Results.md")
+    paths["phase7"] = str((p7 / "Phase7_Results.md").relative_to(output))
 
     # Phase 9: verifiable, cautious review output using the frozen BN scores.
     p9 = phase_dir(output, 9, "evidence_triage")
@@ -367,7 +367,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               "source-message indices with excerpts, and exact model sensitivity to masking each agent's evidence.\n"
               "- Every cited message index is checked against the parsed trace and agent.\n"
               "- Excerpts are observations, not causal proof. Human review remains necessary.\n")
-    paths["phase9"] = str(p9 / "Phase9_Results.md")
+    paths["phase9"] = str((p9 / "Phase9_Results.md").relative_to(output))
 
     # Phase 8: concise final assessment and provenance manifest.
     p8 = phase_dir(output, 8, "final_report")
@@ -423,7 +423,7 @@ def run(dataset: Path, output: Path, seed: int) -> dict:
               "early identification is **not reliable**.\n"
               "- **Competitive performance versus AgenTracer:** **Not established**; no matched runnable evaluation is available.\n"
               "- **Multimodal agents:** Outside the current PPT's multi-agent scope and without a separate modality-specific evaluation.\n")
-    paths["phase8"] = str(p8 / "Final_Report.md")
+    paths["phase8"] = str((p8 / "Final_Report.md").relative_to(output))
     from agentdiag_v2.make_presentation import build as build_presentation
     build_presentation(p8 / "summary.json", p8 / "AgentDiag_v2_Final_Review.pptx")
     write_json(output / "phase_manifest.json", paths)

@@ -27,8 +27,10 @@ def read_jsonl(path: Path) -> list[dict]:
 def verify(artifacts: Path, dataset: Path) -> dict:
     checks = {}
     manifest = json.loads((artifacts / "phase_manifest.json").read_text())
-    checks["all_ten_phase_reports_exist"] = (set(manifest) == {f"phase{i}" for i in range(10)}
-                                              and all(Path(p).is_file() for p in manifest.values()))
+    checks["all_ten_phase_reports_exist"] = (
+        set(manifest) == {f"phase{i}" for i in range(10)}
+        and all((artifacts / p).is_file() if not Path(p).is_absolute() else Path(p).is_file()
+                for p in manifest.values()))
     split_data = json.loads((artifacts / "phase0_protocol" / "splits.json").read_text())
     splits = split_data["splits"]
     ids = [trace_id for part in splits.values() for trace_id in part]
@@ -119,7 +121,7 @@ def verify(artifacts: Path, dataset: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, default=HERE / "artifacts")
-    parser.add_argument("--dataset", type=Path, default=HERE.parent / "Agents_Failure_Attribution" / "Who&When")
+    parser.add_argument("--dataset", type=Path, default=HERE / "data" / "Who&When")
     args = parser.parse_args()
     result = verify(args.artifacts.resolve(), args.dataset.resolve())
     print("PASS" if result["passed"] else "FAIL", "—", len(result["checks"]), "artifact checks")

@@ -14,7 +14,7 @@ from agentdiag_v2.src.data import load_records, write_json
 
 
 HERE = Path(__file__).resolve().parent
-DATA = HERE.parent / "Agents_Failure_Attribution" / "Who&When"
+DATA = HERE / "data" / "Who&When"
 
 
 def jsonl(path: Path) -> list[dict]:

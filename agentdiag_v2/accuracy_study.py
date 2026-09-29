@@ -20,7 +20,7 @@ from agentdiag_v2.src.ranker import fit as fit_ranker, predict as rank_predict
 
 
 ROOT = Path(__file__).resolve().parent
-DATASET = ROOT.parent / "Agents_Failure_Attribution" / "Who&When"
+DATASET = ROOT / "data" / "Who&When"
 OUTPUT = ROOT / "accuracy_study"
 FEATURES = ("error", "uncertain", "correction")
 

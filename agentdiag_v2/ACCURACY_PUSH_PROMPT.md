@@ -1,6 +1,6 @@
 # Prompt: Continue the AgentDiag accuracy push
 
-Work in `/home/shiva/sem5/pr/project/agentdiag_v2`. Continue the existing project; do not overwrite or delete prior files, reports, models, presentations, or predictions. Read this prompt and the linked project reports before changing code.
+Work in the `agentdiag_v2` folder from the repository root. Continue the existing project; do not overwrite or delete prior files, reports, models, presentations, or predictions. Read this prompt and the linked project reports before changing code.
 
 ## Goal
 

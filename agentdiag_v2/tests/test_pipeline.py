@@ -15,7 +15,7 @@ from agentdiag_v2.src.temporal import brute_force_forward, fit_hmm, forward
 
 
 PROJECT = Path(__file__).resolve().parents[2]
-DATASET = PROJECT / "Agents_Failure_Attribution" / "Who&When"
+DATASET = PROJECT / "agentdiag_v2" / "data" / "Who&When"
 
 
 @pytest.fixture(scope="module")
@@ -65,7 +65,7 @@ def test_full_run_writes_every_phase_and_diagnoses_unlabeled_trace(tmp_path, rec
     summary = run(DATASET, output, 20260929)
     manifest = json.loads((output / "phase_manifest.json").read_text())
     assert set(manifest) == {f"phase{i}" for i in range(10)}
-    assert all(Path(path).is_file() for path in manifest.values())
+    assert all((output / path).is_file() for path in manifest.values())
     assert summary["test_calibrated"]["n"] > 0
     assert summary["test_calibrated"]["n"] == summary["test_position_prior"]["n"]
     assert summary["multimodal"]["labeled_multimodal_trace_count"] == 0

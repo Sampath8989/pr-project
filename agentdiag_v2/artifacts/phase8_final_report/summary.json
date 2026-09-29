@@ -1,5 +1,5 @@
 {
-  "dataset": "/home/shiva/sem5/pr/project/Agents_Failure_Attribution/Who&When",
+  "dataset": "data/Who&When",
   "split_counts": {
     "train": 134,
     "validation": 27,

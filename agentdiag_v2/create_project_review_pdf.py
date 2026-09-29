@@ -342,6 +342,10 @@ def build_story():
 
     story += section("10. File-by-file guide: reports, models, and outputs", "This appendix covers the non-code outputs too, so you can point to the evidence behind a statement.")
     output_rows = [
+        ("data/Who&amp;When/SOURCE.md", "Credits the Who&amp;When dataset, paper, upstream repository, and its role in this project."),
+        ("data/Who&amp;When/LICENSE", "License text copied from the upstream benchmark repository."),
+        ("data/Who&amp;When/Algorithm-Generated/*.json (126 files)", "Saved failure traces from automatically generated agent systems; each file has the same benchmark record format."),
+        ("data/Who&amp;When/Hand-Crafted/*.json (58 files)", "Saved failure traces from the hand-crafted agent system; each file has the same benchmark record format."),
         ("data/stepfinder_safe_questions.json", "Approved question hashes, source revision, and filtering method for external training."),
         ("artifacts/phase_manifest.json", "Index of the phase reports and output folders."),
         ("artifacts/phase0_protocol/Phase0_Results.md", "Human-readable data-split report."),
@@ -423,9 +427,9 @@ def build_story():
         ("Verify generated phase outputs", "python3 agentdiag_v2/verify.py"),
         ("Run automated tests", "python3 -m pytest agentdiag_v2/tests -q"),
         ("Check step/hybrid benchmark outputs", "python3 -m agentdiag_v2.verify_upgrade"),
-        ("Predict a single trace", "python3 agentdiag_v2/predict.py 'Agents_Failure_Attribution/Who&amp;When/Algorithm-Generated/1.json'"),
-        ("Predict step and agent", "python3 agentdiag_v2/predict_step.py 'Agents_Failure_Attribution/Who&amp;When/Algorithm-Generated/1.json'"),
-        ("Predict with hybrid", "python3 agentdiag_v2/predict_hybrid.py 'Agents_Failure_Attribution/Who&amp;When/Algorithm-Generated/1.json'"),
+        ("Predict a single trace", "python3 agentdiag_v2/predict.py 'agentdiag_v2/data/Who&amp;When/Algorithm-Generated/1.json'"),
+        ("Predict step and agent", "python3 agentdiag_v2/predict_step.py 'agentdiag_v2/data/Who&amp;When/Algorithm-Generated/1.json'"),
+        ("Predict with hybrid", "python3 agentdiag_v2/predict_hybrid.py 'agentdiag_v2/data/Who&amp;When/Algorithm-Generated/1.json'"),
     ]
     story += [table(["Purpose", "Command"], cmd_rows, [53*mm, 121*mm], font="Smallx")]
     story += [P("What was checked in this run?", "H2x"), P("The main artifact verification passed 17 checks; the step/hybrid verification passed 13 checks; six automated tests passed. The step and hybrid command-line predictors also returned valid JSON for a sample trace.")]

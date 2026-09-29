@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_hybrid_prediction_matches_saved_evaluation_without_labels(tmp_path):
-    source = ROOT / "Agents_Failure_Attribution" / "Who&When" / "Algorithm-Generated" / "121.json"
+    source = ROOT / "agentdiag_v2" / "data" / "Who&When" / "Algorithm-Generated" / "121.json"
     raw = json.loads(source.read_text())
     labeled = diagnose(source)
     raw.pop("mistake_agent")

@@ -14,13 +14,13 @@ python3 agentdiag_v2/verify.py
 python3 -m pytest agentdiag_v2/tests -q
 ```
 
-Dependencies are listed in `agentdiag_v2/requirements.txt`. The bundled environment used for this run has NumPy, SciPy, Matplotlib, and pytest installed. The pipeline reads the existing Who&When data at `Agents_Failure_Attribution/Who&When` and writes only under `agentdiag_v2/artifacts/`. Use `--dataset PATH --output PATH --seed NUMBER` to override these defaults.
+Dependencies are listed in `agentdiag_v2/requirements.txt`. The bundled environment used for this run has NumPy, SciPy, Matplotlib, and pytest installed. The pipeline reads the existing Who&When data at `agentdiag_v2/data/Who&When` and writes only under `agentdiag_v2/artifacts/`. Use `--dataset PATH --output PATH --seed NUMBER` to override these defaults.
 
 To diagnose one JSON trace after running the pipeline:
 
 ```bash
-python3 agentdiag_v2/predict.py 'Agents_Failure_Attribution/Who&When/Algorithm-Generated/1.json'
-python3 agentdiag_v2/predict.py 'Agents_Failure_Attribution/Who&When/Algorithm-Generated/1.json' --mask-agent-index 2
+python3 agentdiag_v2/predict.py 'agentdiag_v2/data/Who&When/Algorithm-Generated/1.json'
+python3 agentdiag_v2/predict.py 'agentdiag_v2/data/Who&When/Algorithm-Generated/1.json' --mask-agent-index 2
 ```
 
 The single-trace command does **not** read `mistake_agent` or `mistake_step`, even when they are present in the input JSON. It accepts an unlabeled trace with a `history` list. Agent indices for `--mask-agent-index` are zero-based.
@@ -56,7 +56,7 @@ The [step benchmark report](benchmark_step/Benchmark_Report.md) evaluates a sepa
 To diagnose one trace with the step model:
 
 ```bash
-python3 agentdiag_v2/predict_step.py 'Agents_Failure_Attribution/Who&When/Algorithm-Generated/1.json'
+python3 agentdiag_v2/predict_step.py 'agentdiag_v2/data/Who&When/Algorithm-Generated/1.json'
 ```
 
 To retrain and reevaluate, obtain the StepFinder repository at commit `48d71c7090adca3667a31b043a78484f407b4a2f`, including its `data` directory, then run:
@@ -74,7 +74,7 @@ The [hybrid report](hybrid_upgrade/Hybrid_Report.md) combines the BN with the ex
 Use it for a four-agent trace with:
 
 ```bash
-python3 agentdiag_v2/predict_hybrid.py 'Agents_Failure_Attribution/Who&When/Algorithm-Generated/1.json'
+python3 agentdiag_v2/predict_hybrid.py 'agentdiag_v2/data/Who&When/Algorithm-Generated/1.json'
 ```
 
 `python3 agentdiag_v2/hybrid_upgrade.py` regenerates the nested evaluation and saved hybrid model. The original `predict.py` remains available for BN-only diagnoses and other agent counts.

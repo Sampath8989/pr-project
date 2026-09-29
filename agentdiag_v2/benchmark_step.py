@@ -20,7 +20,7 @@ from agentdiag_v2.src.step_ranker import fit, predict
 
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_DATA = HERE.parent / "Agents_Failure_Attribution" / "Who&When"
+DEFAULT_DATA = HERE / "data" / "Who&When"
 SAFE = HERE / "data" / "stepfinder_safe_questions.json"
 OUTPUT = HERE / "benchmark_step"
 L2_CANDIDATES = (0.25, 0.35, 0.45)
