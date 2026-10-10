@@ -1,0 +1,130 @@
+{
+  "sources_sha256": {
+    "contextual_upgrade/metrics.json": "3ff19cd65589b11a5143c64727710e98842e0a54a15ba0bd3a4c79bb3d67b69d",
+    "contextual_upgrade/selection.json": "dec64d74c176d374710b8935c9a47f6e1241b2663491d169384e15ceba4e1fe6",
+    "contextual_upgrade\\benchmark_predictions.jsonl": "c0d714fb34f16b2987d37c57255208bf73cf2d1088e104a701ce21040a4109d4",
+    "artifacts/phase5_calibration_evaluation/calibration.json": "601c0b88b519243039940b92381df4a5c00a77bd596ff7eea28d155bdf2d5c66",
+    "artifacts/phase4_missing_evidence/metrics.json": "106d3a3f527094acdf57d8840db33d53e1d1d462bcbb39fb805aef94ae9d8502",
+    "artifacts/phase6_temporal_hmm/metrics.json": "089f27b25a96c9d0e8cbb16a3122be76bb956d7184d6db50d5d02a9fd414f519",
+    "artifacts/phase9_evidence_triage/metrics.json": "523a485925245ec924fa2984d235f2d309918a41e38ac00ca2611f75be0bee81",
+    "hybrid_upgrade/metrics.json": "3b6d7f094a8ebfa207924953d8649b3234a4543debeca350db77972eb62f88c2",
+    "artifacts/phase2_evidence_baselines/baselines.json": "f49ffa90f8953efd7ed380d77f052085ed87b16c7fa46ff1d73b4ed8592c0c09",
+    "artifacts\\phase4_missing_evidence\\metrics.json": "106d3a3f527094acdf57d8840db33d53e1d1d462bcbb39fb805aef94ae9d8502",
+    "artifacts\\phase6_temporal_hmm\\metrics.json": "089f27b25a96c9d0e8cbb16a3122be76bb956d7184d6db50d5d02a9fd414f519",
+    "artifacts\\phase9_evidence_triage\\metrics.json": "523a485925245ec924fa2984d235f2d309918a41e38ac00ca2611f75be0bee81",
+    "artifacts\\phase2_evidence_baselines\\baselines.json": "f49ffa90f8953efd7ed380d77f052085ed87b16c7fa46ff1d73b4ed8592c0c09",
+    "artifacts\\phase8_final_report\\summary.json": "3756c3be6f457627212f0dd7847a569969d60cce6d0b2d3d5d74785870d6edbf",
+    "artifacts\\phase5_calibration_evaluation\\calibration.json": "601c0b88b519243039940b92381df4a5c00a77bd596ff7eea28d155bdf2d5c66",
+    "hybrid_upgrade\\metrics.json": "3b6d7f094a8ebfa207924953d8649b3234a4543debeca350db77972eb62f88c2",
+    "benchmark_step\\metrics.json": "e4213ff6a750be2bdaf79a0e4b1c9cead3fea29262f25d31b4bd3eed7c989e86",
+    "contextual_upgrade\\metrics.json": "3ff19cd65589b11a5143c64727710e98842e0a54a15ba0bd3a4c79bb3d67b69d"
+  },
+  "figures": [
+    {
+      "file": "01_agent_accuracy.png",
+      "caption": "Saved original-corpus evaluation; exploratory. Overall combines different subsets."
+    },
+    {
+      "file": "01_step_accuracy.png",
+      "caption": "Saved original-corpus evaluation; exploratory. Overall combines different subsets."
+    },
+    {
+      "file": "01_joint_accuracy.png",
+      "caption": "Saved original-corpus evaluation; exploratory. Overall combines different subsets."
+    },
+    {
+      "file": "02_dataset_sizes.png",
+      "caption": "184 saved Who&When conversations; this figure is an inventory, not an accuracy result."
+    },
+    {
+      "file": "03_algorithm_correct_counts.png",
+      "caption": "Same 126 conversations for both versions."
+    },
+    {
+      "file": "04_algorithm_gains_losses.png",
+      "caption": "Show gains and regressions together. Net improvement = gains minus losses."
+    },
+    {
+      "file": "05_algorithm_uncertainty.png",
+      "caption": "Saved 95% trace-bootstrap intervals; they do not remove development-set reuse or question dependence."
+    },
+    {
+      "file": "03_handcrafted_correct_counts.png",
+      "caption": "Same 58 conversations for both versions."
+    },
+    {
+      "file": "04_handcrafted_gains_losses.png",
+      "caption": "Show gains and regressions together. Net improvement = gains minus losses."
+    },
+    {
+      "file": "05_handcrafted_uncertainty.png",
+      "caption": "Saved 95% trace-bootstrap intervals; they do not remove development-set reuse or question dependence."
+    },
+    {
+      "file": "06_algorithm_outcomes.png",
+      "caption": "Computed directly from individual saved predictions."
+    },
+    {
+      "file": "07_algorithm_step_distance.png",
+      "caption": "Absolute raw-message index distance. Near misses do not count toward exact step accuracy."
+    },
+    {
+      "file": "06_handcrafted_outcomes.png",
+      "caption": "Computed directly from individual saved predictions."
+    },
+    {
+      "file": "07_handcrafted_step_distance.png",
+      "caption": "Absolute raw-message index distance. Near misses do not count toward exact step accuracy."
+    },
+    {
+      "file": "08_validation_vs_original.png",
+      "caption": "Different datasets. Validation was used for selection; it is not an independent final benchmark."
+    },
+    {
+      "file": "09_bn_calibration_scores.png",
+      "caption": "Separate frozen Bayesian model, n=13. Lower is better. Top-choice accuracy stays 5/13."
+    },
+    {
+      "file": "10_bn_reliability.png",
+      "caption": "Separate frozen Bayesian model, n=13. Tiny bins make this estimate noisy; not the contextual model."
+    },
+    {
+      "file": "11_missing_evidence.png",
+      "caption": "Separate Bayesian model; 13 examples per condition. A higher small-sample score does not prove missing evidence helps."
+    },
+    {
+      "file": "12_early_warning.png",
+      "caption": "Higher early recall is better; lower wrong-agent warning rate is better. HMM remains unreliable."
+    },
+    {
+      "file": "13_shortlist.png",
+      "caption": "Separate Bayesian model, n=13. Shortlist coverage is not top-choice accuracy."
+    },
+    {
+      "file": "14_hybrid_grouped_validation.png",
+      "caption": "Separate 91-example grouped evaluation; paired p=0.0768. Improvement is not conclusive."
+    },
+    {
+      "file": "15_baselines_validation_4agent.png",
+      "caption": "Original four-agent split, n=13. Separate from the 184-example contextual evaluation."
+    },
+    {
+      "file": "15_baselines_test_4agent.png",
+      "caption": "Original four-agent split, n=13. Separate from the 184-example contextual evaluation."
+    },
+    {
+      "file": "16_paper_reference_algorithm.png",
+      "caption": "No answer supplied. Paper numbers are references, not a matched head-to-head or a proven paper win."
+    },
+    {
+      "file": "16_paper_reference_handcrafted.png",
+      "caption": "No answer supplied. Paper numbers are references, not a matched head-to-head or a proven paper win."
+    },
+    {
+      "file": "17_algorithm_targets.png",
+      "caption": "Targets remain unmet. At n=126, reaching them requires 76 correct agents and 45 correct steps."
+    }
+  ],
+  "prediction_count": 184,
+  "counts_recomputed": true
+}

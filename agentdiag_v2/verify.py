@@ -114,7 +114,8 @@ def verify(artifacts: Path, dataset: Path) -> dict:
         + "\n".join(f"- {'PASS' if result else 'FAIL'} — {name.replace('_', ' ')}"
                     for name, result in checks.items())
         + f"\n\nOverall: {'PASS' if outcome['passed'] else 'FAIL'}. "
-          f"Checked {len(predictions)} attribution predictions and {len(warnings)} temporal test traces.\n")
+          f"Checked {len(predictions)} attribution predictions and {len(warnings)} temporal test traces.\n",
+        encoding="utf-8")
     return outcome
 
 

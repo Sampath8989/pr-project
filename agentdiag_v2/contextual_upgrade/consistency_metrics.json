@@ -1,0 +1,96 @@
+{
+  "before": {
+    "Algorithm-Generated": {
+      "traces": 126,
+      "correct_agent": 73,
+      "agent_accuracy": 0.5793650793650794,
+      "correct_step": 42,
+      "step_accuracy": 0.3333333333333333,
+      "correct_both": 36,
+      "joint_accuracy": 0.2857142857142857
+    },
+    "Hand-Crafted": {
+      "traces": 58,
+      "correct_agent": 37,
+      "agent_accuracy": 0.6379310344827587,
+      "correct_step": 8,
+      "step_accuracy": 0.13793103448275862,
+      "correct_both": 7,
+      "joint_accuracy": 0.1206896551724138
+    },
+    "Overall": {
+      "traces": 184,
+      "correct_agent": 110,
+      "agent_accuracy": 0.5978260869565217,
+      "correct_step": 50,
+      "step_accuracy": 0.2717391304347826,
+      "correct_both": 43,
+      "joint_accuracy": 0.23369565217391305
+    }
+  },
+  "after": {
+    "Algorithm-Generated": {
+      "traces": 126,
+      "correct_agent": 70,
+      "agent_accuracy": 0.5555555555555556,
+      "correct_step": 42,
+      "step_accuracy": 0.3333333333333333,
+      "correct_both": 40,
+      "joint_accuracy": 0.31746031746031744
+    },
+    "Hand-Crafted": {
+      "traces": 58,
+      "correct_agent": 37,
+      "agent_accuracy": 0.6379310344827587,
+      "correct_step": 9,
+      "step_accuracy": 0.15517241379310345,
+      "correct_both": 8,
+      "joint_accuracy": 0.13793103448275862
+    },
+    "Overall": {
+      "traces": 184,
+      "correct_agent": 107,
+      "agent_accuracy": 0.5815217391304348,
+      "correct_step": 51,
+      "step_accuracy": 0.27717391304347827,
+      "correct_both": 48,
+      "joint_accuracy": 0.2608695652173913
+    }
+  },
+  "selection": {
+    "agent_weight": 0.5,
+    "step_weight": 1,
+    "external_cv_metrics": {
+      "Algorithm-Generated": {
+        "traces": 989,
+        "correct_agent": 807,
+        "agent_accuracy": 0.8159757330637007,
+        "correct_step": 692,
+        "step_accuracy": 0.6996966632962589,
+        "correct_both": 668,
+        "joint_accuracy": 0.6754297269969667
+      },
+      "Hand-Crafted": {
+        "traces": 1015,
+        "correct_agent": 794,
+        "agent_accuracy": 0.7822660098522167,
+        "correct_step": 649,
+        "step_accuracy": 0.6394088669950739,
+        "correct_both": 619,
+        "joint_accuracy": 0.6098522167487684
+      },
+      "Overall": {
+        "traces": 2004,
+        "correct_agent": 1601,
+        "agent_accuracy": 0.7989021956087824,
+        "correct_step": 1341,
+        "step_accuracy": 0.6691616766467066,
+        "correct_both": 1287,
+        "joint_accuracy": 0.6422155688622755
+      }
+    },
+    "cv_sha256": "0166653e3dd37b2527423b4a977cd499566b9c2c7db7c63cfe51992fa62068c2",
+    "protocol": "Weights selected only on external Algorithm-Generated OOF accuracy; exact joint is a tie breaker. Original predictions are scored only after selection."
+  },
+  "limitation": "Previously inspected corpus; exploratory. No original labels choose weights."
+}

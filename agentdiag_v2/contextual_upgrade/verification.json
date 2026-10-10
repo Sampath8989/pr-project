@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "verified_traces": 184,
+  "checks": [
+    "selection file unchanged since benchmark prediction",
+    "strict metrics recomputed",
+    "valid raw indices and agents",
+    "finite normalized probabilities",
+    "saved checkpoints reproduce all 184 label-free predictions"
+  ],
+  "paired_changes": {
+    "Algorithm-Generated": {
+      "agent": {
+        "gains": 16,
+        "losses": 5,
+        "two_sided_exact_p": 0.02660369873046875
+      },
+      "step": {
+        "gains": 11,
+        "losses": 5,
+        "two_sided_exact_p": 0.210113525390625
+      }
+    },
+    "Hand-Crafted": {
+      "agent": {
+        "gains": 3,
+        "losses": 3,
+        "two_sided_exact_p": 1.0
+      },
+      "step": {
+        "gains": 1,
+        "losses": 3,
+        "two_sided_exact_p": 0.625
+      }
+    }
+  }
+}

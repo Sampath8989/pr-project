@@ -1,0 +1,21 @@
+{
+  "Algorithm-Generated": {
+    "n": 126,
+    "strict_agent": 62,
+    "strict_step": 36,
+    "released_scorer_agent": 62,
+    "released_scorer_step": 36,
+    "extra_step_ids": []
+  },
+  "Hand-Crafted": {
+    "n": 58,
+    "strict_agent": 37,
+    "strict_step": 10,
+    "released_scorer_agent": 37,
+    "released_scorer_step": 12,
+    "extra_step_ids": [
+      "Hand-Crafted/2.json",
+      "Hand-Crafted/56.json"
+    ]
+  }
+}

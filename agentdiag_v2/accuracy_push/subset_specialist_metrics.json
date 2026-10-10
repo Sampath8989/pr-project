@@ -1,0 +1,95 @@
+{
+  "protocol": "Five question-group folds of filtered StepFinder data choose combined versus subset-specific ranker separately per subset; original labels are used only for post-selection scoring.",
+  "choices": {
+    "Algorithm-Generated": {
+      "selected": "combined",
+      "external_cv_combined": {
+        "traces": 989,
+        "correct_agent": 744,
+        "agent_accuracy": 0.7522750252780587,
+        "correct_step": 606,
+        "step_accuracy": 0.6127401415571284,
+        "correct_both": 591,
+        "joint_accuracy": 0.5975733063700708
+      },
+      "external_cv_specialist": {
+        "traces": 989,
+        "correct_agent": 724,
+        "agent_accuracy": 0.7320525783619818,
+        "correct_step": 582,
+        "step_accuracy": 0.5884732052578362,
+        "correct_both": 565,
+        "joint_accuracy": 0.5712841253791708
+      },
+      "original_combined": {
+        "traces": 126,
+        "correct_agent": 62,
+        "agent_accuracy": 0.49206349206349204,
+        "correct_step": 36,
+        "step_accuracy": 0.2857142857142857,
+        "correct_both": 33,
+        "joint_accuracy": 0.2619047619047619
+      },
+      "original_selected": {
+        "traces": 126,
+        "correct_agent": 62,
+        "agent_accuracy": 0.49206349206349204,
+        "correct_step": 36,
+        "step_accuracy": 0.2857142857142857,
+        "correct_both": 33,
+        "joint_accuracy": 0.2619047619047619
+      },
+      "external_training_traces": 989
+    },
+    "Hand-Crafted": {
+      "selected": "combined",
+      "external_cv_combined": {
+        "traces": 1015,
+        "correct_agent": 727,
+        "agent_accuracy": 0.716256157635468,
+        "correct_step": 585,
+        "step_accuracy": 0.5763546798029556,
+        "correct_both": 551,
+        "joint_accuracy": 0.5428571428571428
+      },
+      "external_cv_specialist": {
+        "traces": 1015,
+        "correct_agent": 716,
+        "agent_accuracy": 0.7054187192118226,
+        "correct_step": 566,
+        "step_accuracy": 0.5576354679802956,
+        "correct_both": 515,
+        "joint_accuracy": 0.5073891625615764
+      },
+      "original_combined": {
+        "traces": 58,
+        "correct_agent": 37,
+        "agent_accuracy": 0.6379310344827587,
+        "correct_step": 10,
+        "step_accuracy": 0.1724137931034483,
+        "correct_both": 8,
+        "joint_accuracy": 0.13793103448275862
+      },
+      "original_selected": {
+        "traces": 58,
+        "correct_agent": 37,
+        "agent_accuracy": 0.6379310344827587,
+        "correct_step": 10,
+        "step_accuracy": 0.1724137931034483,
+        "correct_both": 8,
+        "joint_accuracy": 0.13793103448275862
+      },
+      "external_training_traces": 1015
+    }
+  },
+  "original_selected_overall": {
+    "traces": 184,
+    "correct_agent": 99,
+    "agent_accuracy": 0.5380434782608695,
+    "correct_step": 46,
+    "step_accuracy": 0.25,
+    "correct_both": 41,
+    "joint_accuracy": 0.22282608695652173
+  },
+  "caveat": "Who&When cases were previously inspected; original-corpus scores remain exploratory and are not directly comparable to paper numbers."
+}

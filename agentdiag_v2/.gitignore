@@ -1,3 +1,12 @@
 __pycache__/
-*.pyc
+*.py[cod]
 artifacts/.matplotlib/
+.pytest_cache/
+contextual_upgrade/cache/
+contextual_upgrade/*.pt
+contextual_upgrade/*.npz
+.venv/
+results_graphs/.matplotlib/
+contextual_upgrade/cv_*.jsonl
+!contextual_upgrade/cv_selected.jsonl
+contextual_upgrade/training_progress.jsonl

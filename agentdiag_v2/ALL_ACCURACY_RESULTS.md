@@ -1,5 +1,21 @@
 # All measured accuracy results
 
+Latest Algorithm-Generated upgrade: **57.9% agent and 33.3% exact step**, compared with the previous 49.2% and 28.6%. These are previously inspected original-corpus scores; the 60%/35% targets and AgenTracer scores remain unmet.
+
+| New output | Evaluation data | Correct / total | Accuracy |
+| --- | --- | ---: | ---: |
+| Contextual ensemble, agent | Original Algorithm-Generated | 73/126 | **57.9%** |
+| Contextual ensemble, exact step | Original Algorithm-Generated | 42/126 | **33.3%** |
+| Contextual ensemble, both correct | Original Algorithm-Generated | 36/126 | 28.6% |
+| Contextual ensemble, agent | Original Hand-Crafted | 37/58 | 63.8% |
+| Contextual ensemble, exact step | Original Hand-Crafted | 8/58 | 13.8%; below old 17.2% |
+| Selected ensemble, agent | External grouped development predictions | 781/989 | 79.0%; used for selection |
+| Selected ensemble, exact step | External grouped development predictions | 681/989 | 68.9%; used for selection |
+| Soft agreement experiment, agent | Original Algorithm-Generated | 70/126 | 55.6%; not adopted |
+| Soft agreement experiment, exact step | Original Algorithm-Generated | 42/126 | 33.3%; not adopted |
+
+Source: [latest checked report](contextual_upgrade/Contextual_Report.md), [strict metrics](contextual_upgrade/metrics.json), [selection](contextual_upgrade/selection.json), [agreement experiment](contextual_upgrade/consistency_metrics.json). Earlier results follow.
+
 | Output / method | Evaluation data | Correct / total | Result | What this measures |
 | --- | --- | ---: | ---: | --- |
 | Position-only baseline | 4-agent validation | 5 / 13 | 38.5% | Top-choice agent accuracy |
@@ -43,5 +59,11 @@
 | **Hybrid BN + tuned step model** | Nested question-group folds, 4-agent traces | **48 / 91** | **52.7%** | Improved over BN; paired p = 0.077, exploratory |
 | Bayesian network refit on train + validation | Previously inspected 4-agent test | 5 / 13 | 38.5% | Paired baseline for the hybrid on the same training cases |
 | **Hybrid BN + step model** | Previously inspected 4-agent test | **6 / 13** | **46.2%** | Improved top-choice accuracy; test reused during prior research |
+| Agent-aware step selection, externally selected | All algorithm-generated Who&When traces | 36 / 126 | 28.6% | Exact step; external CV selected unchanged weight 0 |
+| Agent-aware step selection, externally selected | All handcrafted Who&When traces | 10 / 58 | 17.2% | Exact step; external CV selected unchanged weight 0 |
+| Domain adaptation, validation selected | Frozen 23-trace test | 7 / 23 | 30.4% | Exact step; validation selected unchanged external model |
+| Domain adaptation, validation selected | Frozen 23-trace test | 11 / 23 | 47.8% | Agent accuracy; no improvement over external model |
+| Subset-specific rankers, externally selected | All algorithm-generated Who&When traces | 36 / 126 | 28.6% | Exact step; external CV rejected the specialist model |
+| Subset-specific rankers, externally selected | All handcrafted Who&When traces | 10 / 58 | 17.2% | Exact step; external CV rejected the specialist model |
 
-Sources: [baseline metrics](artifacts/phase2_evidence_baselines/baselines.json), [BN validation](artifacts/phase3_bayesian_inference/validation_predictions.jsonl), [missing-log metrics](artifacts/phase4_missing_evidence/metrics.json), [calibrated test metrics](artifacts/phase5_calibration_evaluation/calibration.json), [agent-count metrics](artifacts/phase5_calibration_evaluation/exploratory_agent_count_metrics.json), [temporal metrics](artifacts/phase6_temporal_hmm/metrics.json), [top-two metrics](artifacts/phase9_evidence_triage/metrics.json), [group-fold accuracy study](accuracy_study/results.json), [external-data step model](benchmark_step/metrics.json), [hybrid study](hybrid_upgrade/metrics.json), and [exploratory experiment audit](RESEARCH_UPGRADE.md). The 13-case test has been reused during later experiments, so those exploratory scores are not independent confirmation.
+Sources: [baseline metrics](artifacts/phase2_evidence_baselines/baselines.json), [BN validation](artifacts/phase3_bayesian_inference/validation_predictions.jsonl), [missing-log metrics](artifacts/phase4_missing_evidence/metrics.json), [calibrated test metrics](artifacts/phase5_calibration_evaluation/calibration.json), [agent-count metrics](artifacts/phase5_calibration_evaluation/exploratory_agent_count_metrics.json), [temporal metrics](artifacts/phase6_temporal_hmm/metrics.json), [top-two metrics](artifacts/phase9_evidence_triage/metrics.json), [group-fold accuracy study](accuracy_study/results.json), [external-data step model](benchmark_step/metrics.json), [hybrid study](hybrid_upgrade/metrics.json), [October accuracy experiments](accuracy_push/Step_Consistency_Report.md), and [exploratory experiment audit](RESEARCH_UPGRADE.md). The 13-case test has been reused during later experiments, so those exploratory scores are not independent confirmation.

@@ -1,0 +1,111 @@
+figure,series,category,value,unit
+01_agent_accuracy,Previous local ranker,Algorithm-Generated,49.2063492063492,Accuracy (%)
+01_agent_accuracy,Previous local ranker,Hand-Crafted,63.793103448275865,Accuracy (%)
+01_agent_accuracy,Previous local ranker,Overall,53.80434782608695,Accuracy (%)
+01_agent_accuracy,Updated contextual model,Algorithm-Generated,57.936507936507944,Accuracy (%)
+01_agent_accuracy,Updated contextual model,Hand-Crafted,63.793103448275865,Accuracy (%)
+01_agent_accuracy,Updated contextual model,Overall,59.78260869565217,Accuracy (%)
+01_step_accuracy,Previous local ranker,Algorithm-Generated,28.57142857142857,Accuracy (%)
+01_step_accuracy,Previous local ranker,Hand-Crafted,17.24137931034483,Accuracy (%)
+01_step_accuracy,Previous local ranker,Overall,25.0,Accuracy (%)
+01_step_accuracy,Updated contextual model,Algorithm-Generated,33.33333333333333,Accuracy (%)
+01_step_accuracy,Updated contextual model,Hand-Crafted,13.793103448275861,Accuracy (%)
+01_step_accuracy,Updated contextual model,Overall,27.173913043478258,Accuracy (%)
+01_joint_accuracy,Previous local ranker,Algorithm-Generated,26.190476190476193,Accuracy (%)
+01_joint_accuracy,Previous local ranker,Hand-Crafted,13.793103448275861,Accuracy (%)
+01_joint_accuracy,Previous local ranker,Overall,22.282608695652172,Accuracy (%)
+01_joint_accuracy,Updated contextual model,Algorithm-Generated,28.57142857142857,Accuracy (%)
+01_joint_accuracy,Updated contextual model,Hand-Crafted,12.068965517241379,Accuracy (%)
+01_joint_accuracy,Updated contextual model,Overall,23.369565217391305,Accuracy (%)
+02_dataset_sizes,Conversations,Algorithm-Generated,126.0,Number of conversations
+02_dataset_sizes,Conversations,Hand-Crafted,58.0,Number of conversations
+03_algorithm_correct_counts,Previous,Agent,62.0,Correct conversations
+03_algorithm_correct_counts,Previous,Exact step,36.0,Correct conversations
+03_algorithm_correct_counts,Previous,Both,33.0,Correct conversations
+03_algorithm_correct_counts,Updated,Agent,73.0,Correct conversations
+03_algorithm_correct_counts,Updated,Exact step,42.0,Correct conversations
+03_algorithm_correct_counts,Updated,Both,36.0,Correct conversations
+04_algorithm_gains_losses,Wrong to correct,Agent,16.0,Number of conversations
+04_algorithm_gains_losses,Wrong to correct,Exact step,11.0,Number of conversations
+04_algorithm_gains_losses,Correct to wrong,Agent,5.0,Number of conversations
+04_algorithm_gains_losses,Correct to wrong,Exact step,5.0,Number of conversations
+03_handcrafted_correct_counts,Previous,Agent,37.0,Correct conversations
+03_handcrafted_correct_counts,Previous,Exact step,10.0,Correct conversations
+03_handcrafted_correct_counts,Previous,Both,8.0,Correct conversations
+03_handcrafted_correct_counts,Updated,Agent,37.0,Correct conversations
+03_handcrafted_correct_counts,Updated,Exact step,8.0,Correct conversations
+03_handcrafted_correct_counts,Updated,Both,7.0,Correct conversations
+04_handcrafted_gains_losses,Wrong to correct,Agent,3.0,Number of conversations
+04_handcrafted_gains_losses,Wrong to correct,Exact step,1.0,Number of conversations
+04_handcrafted_gains_losses,Correct to wrong,Agent,3.0,Number of conversations
+04_handcrafted_gains_losses,Correct to wrong,Exact step,3.0,Number of conversations
+06_algorithm_outcomes,Updated,Both correct,36.0,Number of conversations
+06_algorithm_outcomes,Updated,Agent only,37.0,Number of conversations
+06_algorithm_outcomes,Updated,Step only,6.0,Number of conversations
+06_algorithm_outcomes,Updated,Both wrong,47.0,Number of conversations
+07_algorithm_step_distance,Updated,Exact,42.0,Number of conversations
+07_algorithm_step_distance,Updated,1 message,15.0,Number of conversations
+07_algorithm_step_distance,Updated,2–3 messages,32.0,Number of conversations
+07_algorithm_step_distance,Updated,4–7 messages,36.0,Number of conversations
+07_algorithm_step_distance,Updated,8+ messages,1.0,Number of conversations
+06_handcrafted_outcomes,Updated,Both correct,7.0,Number of conversations
+06_handcrafted_outcomes,Updated,Agent only,30.0,Number of conversations
+06_handcrafted_outcomes,Updated,Step only,1.0,Number of conversations
+06_handcrafted_outcomes,Updated,Both wrong,20.0,Number of conversations
+07_handcrafted_step_distance,Updated,Exact,8.0,Number of conversations
+07_handcrafted_step_distance,Updated,1 message,2.0,Number of conversations
+07_handcrafted_step_distance,Updated,2–3 messages,6.0,Number of conversations
+07_handcrafted_step_distance,Updated,4–7 messages,14.0,Number of conversations
+07_handcrafted_step_distance,Updated,8+ messages,28.0,Number of conversations
+08_validation_vs_original,External grouped validation,Algorithm agent,78.96865520728008,Accuracy (%)
+08_validation_vs_original,External grouped validation,Algorithm step,68.85743174924166,Accuracy (%)
+08_validation_vs_original,External grouped validation,Hand-Crafted agent,75.86206896551724,Accuracy (%)
+08_validation_vs_original,External grouped validation,Hand-Crafted step,64.72906403940887,Accuracy (%)
+08_validation_vs_original,Original corpus,Algorithm agent,57.936507936507944,Accuracy (%)
+08_validation_vs_original,Original corpus,Algorithm step,33.33333333333333,Accuracy (%)
+08_validation_vs_original,Original corpus,Hand-Crafted agent,63.793103448275865,Accuracy (%)
+08_validation_vs_original,Original corpus,Hand-Crafted step,13.793103448275861,Accuracy (%)
+09_bn_calibration_scores,Before calibration,Brier score,0.8137238213592826,Error score (lower is better)
+09_bn_calibration_scores,Before calibration,Log loss,1.4236214797989357,Error score (lower is better)
+09_bn_calibration_scores,Before calibration,Calibration error (ECE),0.43775125294123884,Error score (lower is better)
+09_bn_calibration_scores,After calibration,Brier score,0.6886944680588852,Error score (lower is better)
+09_bn_calibration_scores,After calibration,Log loss,1.2383992864083382,Error score (lower is better)
+09_bn_calibration_scores,After calibration,Calibration error (ECE),0.14590859918415408,Error score (lower is better)
+11_missing_evidence,Agent accuracy,complete,38.46153846153847,Accuracy (%)
+11_missing_evidence,Agent accuracy,middle A3 missing,38.46153846153847,Accuracy (%)
+11_missing_evidence,Agent accuracy,one random missing,46.15384615384615,Accuracy (%)
+11_missing_evidence,Agent accuracy,two random missing,30.76923076923077,Accuracy (%)
+12_early_warning,hmm,Early recall (10 eligible),20.0,Rate (%)
+12_early_warning,hmm,Wrong-agent warnings (12 traces),91.66666666666666,Rate (%)
+12_early_warning,keyword baseline,Early recall (10 eligible),10.0,Rate (%)
+12_early_warning,keyword baseline,Wrong-agent warnings (12 traces),50.0,Rate (%)
+13_shortlist,Correct coverage,First choice,38.46153846153846,Accuracy (%)
+13_shortlist,Correct coverage,Actual agent in top two,76.92307692307693,Accuracy (%)
+14_hybrid_grouped_validation,Agent accuracy,Bayesian network,43.956043956043956,Accuracy (%)
+14_hybrid_grouped_validation,Agent accuracy,Probabilistic hybrid,52.74725274725275,Accuracy (%)
+15_baselines_validation_4agent,Agent accuracy,position prior,38.46153846153847,Accuracy (%)
+15_baselines_validation_4agent,Agent accuracy,first error keyword,30.76923076923077,Accuracy (%)
+15_baselines_validation_4agent,Agent accuracy,regularized logistic,53.84615384615385,Accuracy (%)
+15_baselines_test_4agent,Agent accuracy,position prior,30.76923076923077,Accuracy (%)
+15_baselines_test_4agent,Agent accuracy,first error keyword,23.076923076923077,Accuracy (%)
+15_baselines_test_4agent,Agent accuracy,regularized logistic,30.76923076923077,Accuracy (%)
+16_paper_reference_algorithm,Previous local,Agent,49.2063492063492,Accuracy (%)
+16_paper_reference_algorithm,Previous local,Exact step,28.57142857142857,Accuracy (%)
+16_paper_reference_algorithm,Updated local,Agent,57.936507936507944,Accuracy (%)
+16_paper_reference_algorithm,Updated local,Exact step,33.33333333333333,Accuracy (%)
+16_paper_reference_algorithm,Who&When (reported),Agent,51.12,Accuracy (%)
+16_paper_reference_algorithm,Who&When (reported),Exact step,13.53,Accuracy (%)
+16_paper_reference_algorithm,AgenTracer (reported),Agent,63.73,Accuracy (%)
+16_paper_reference_algorithm,AgenTracer (reported),Exact step,37.3,Accuracy (%)
+16_paper_reference_handcrafted,Previous local,Agent,63.793103448275865,Accuracy (%)
+16_paper_reference_handcrafted,Previous local,Exact step,17.24137931034483,Accuracy (%)
+16_paper_reference_handcrafted,Updated local,Agent,63.793103448275865,Accuracy (%)
+16_paper_reference_handcrafted,Updated local,Exact step,13.793103448275861,Accuracy (%)
+16_paper_reference_handcrafted,Who&When (reported),Agent,53.44,Accuracy (%)
+16_paper_reference_handcrafted,Who&When (reported),Exact step,3.51,Accuracy (%)
+16_paper_reference_handcrafted,AgenTracer (reported),Agent,63.82,Accuracy (%)
+16_paper_reference_handcrafted,AgenTracer (reported),Exact step,20.68,Accuracy (%)
+17_algorithm_targets,Current,Agent,57.936507936507944,Accuracy (%)
+17_algorithm_targets,Current,Exact step,33.33333333333333,Accuracy (%)
+17_algorithm_targets,Requested target,Agent,60.0,Accuracy (%)
+17_algorithm_targets,Requested target,Exact step,35.0,Accuracy (%)

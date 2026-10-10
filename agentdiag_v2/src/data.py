@@ -109,7 +109,8 @@ def parse_unlabeled(path: Path) -> dict:
         raise ValueError("trace has no agent messages")
     evidence = [({f: int(any(m["flags"][f] for m in messages if m["agent"] == agent))
                   for f in FEATURES} | role_flags(agent)) for agent in agents]
-    return {"agents": agents, "messages": messages, "evidence": evidence,
+    return {"question": str(raw.get("question") or ""),
+            "agents": agents, "messages": messages, "evidence": evidence,
             "n_agents": len(agents), "raw_message_count": len(history)}
 
 

@@ -38,6 +38,15 @@ def test_question_groups_never_cross_splits(records):
     assert sum(map(len, splits.values())) == len(records)
 
 
+def test_committed_phase_manifest_is_portable():
+    artifacts = PROJECT / "agentdiag_v2" / "artifacts"
+    manifest = json.loads((artifacts / "phase_manifest.json").read_text())
+    assert set(manifest) == {f"phase{i}" for i in range(10)}
+    assert all(not Path(path).is_absolute() and not path.startswith("/") and "\\" not in path
+               for path in manifest.values())
+    assert all((artifacts / path).is_file() for path in manifest.values())
+
+
 def test_ve_matches_enumeration_with_missing_agent(records):
     rows = feature_rows(records)
     train_ids = set(split_records(records)["train"])
@@ -66,6 +75,7 @@ def test_full_run_writes_every_phase_and_diagnoses_unlabeled_trace(tmp_path, rec
     manifest = json.loads((output / "phase_manifest.json").read_text())
     assert set(manifest) == {f"phase{i}" for i in range(10)}
     assert all((output / path).is_file() for path in manifest.values())
+    assert all("\\" not in path for path in manifest.values())
     assert summary["test_calibrated"]["n"] > 0
     assert summary["test_calibrated"]["n"] == summary["test_position_prior"]["n"]
     assert summary["multimodal"]["labeled_multimodal_trace_count"] == 0

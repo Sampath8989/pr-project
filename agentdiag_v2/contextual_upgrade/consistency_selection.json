@@ -1,0 +1,35 @@
+{
+  "agent_weight": 0.5,
+  "step_weight": 1,
+  "external_cv_metrics": {
+    "Algorithm-Generated": {
+      "traces": 989,
+      "correct_agent": 807,
+      "agent_accuracy": 0.8159757330637007,
+      "correct_step": 692,
+      "step_accuracy": 0.6996966632962589,
+      "correct_both": 668,
+      "joint_accuracy": 0.6754297269969667
+    },
+    "Hand-Crafted": {
+      "traces": 1015,
+      "correct_agent": 794,
+      "agent_accuracy": 0.7822660098522167,
+      "correct_step": 649,
+      "step_accuracy": 0.6394088669950739,
+      "correct_both": 619,
+      "joint_accuracy": 0.6098522167487684
+    },
+    "Overall": {
+      "traces": 2004,
+      "correct_agent": 1601,
+      "agent_accuracy": 0.7989021956087824,
+      "correct_step": 1341,
+      "step_accuracy": 0.6691616766467066,
+      "correct_both": 1287,
+      "joint_accuracy": 0.6422155688622755
+    }
+  },
+  "cv_sha256": "0166653e3dd37b2527423b4a977cd499566b9c2c7db7c63cfe51992fa62068c2",
+  "protocol": "Weights selected only on external Algorithm-Generated OOF accuracy; exact joint is a tie breaker. Original predictions are scored only after selection."
+}

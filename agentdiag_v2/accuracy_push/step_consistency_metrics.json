@@ -1,0 +1,176 @@
+{
+  "selected_alpha_external_cv": 0.0,
+  "external_cv_scores": {
+    "0.0": {
+      "Algorithm-Generated": {
+        "n": 989,
+        "agent": 744,
+        "step": 606,
+        "joint": 591,
+        "step_accuracy": 0.6127401415571284
+      },
+      "Hand-Crafted": {
+        "n": 1015,
+        "agent": 727,
+        "step": 585,
+        "joint": 551,
+        "step_accuracy": 0.5763546798029556
+      }
+    },
+    "0.5": {
+      "Algorithm-Generated": {
+        "n": 989,
+        "agent": 744,
+        "step": 608,
+        "joint": 595,
+        "step_accuracy": 0.6147623862487361
+      },
+      "Hand-Crafted": {
+        "n": 1015,
+        "agent": 727,
+        "step": 582,
+        "joint": 556,
+        "step_accuracy": 0.5733990147783251
+      }
+    },
+    "1.0": {
+      "Algorithm-Generated": {
+        "n": 989,
+        "agent": 744,
+        "step": 610,
+        "joint": 598,
+        "step_accuracy": 0.6167846309403437
+      },
+      "Hand-Crafted": {
+        "n": 1015,
+        "agent": 727,
+        "step": 580,
+        "joint": 558,
+        "step_accuracy": 0.5714285714285714
+      }
+    },
+    "2.0": {
+      "Algorithm-Generated": {
+        "n": 989,
+        "agent": 744,
+        "step": 611,
+        "joint": 600,
+        "step_accuracy": 0.6177957532861477
+      },
+      "Hand-Crafted": {
+        "n": 1015,
+        "agent": 727,
+        "step": 578,
+        "joint": 558,
+        "step_accuracy": 0.5694581280788177
+      }
+    },
+    "4.0": {
+      "Algorithm-Generated": {
+        "n": 989,
+        "agent": 744,
+        "step": 613,
+        "joint": 604,
+        "step_accuracy": 0.6198179979777553
+      },
+      "Hand-Crafted": {
+        "n": 1015,
+        "agent": 727,
+        "step": 572,
+        "joint": 559,
+        "step_accuracy": 0.5635467980295567
+      }
+    }
+  },
+  "original_baseline": {
+    "Algorithm-Generated": {
+      "n": 126,
+      "agent": 62,
+      "step": 36,
+      "joint": 33,
+      "step_accuracy": 0.2857142857142857
+    },
+    "Hand-Crafted": {
+      "n": 58,
+      "agent": 37,
+      "step": 10,
+      "joint": 8,
+      "step_accuracy": 0.1724137931034483
+    }
+  },
+  "original_candidate": {
+    "Algorithm-Generated": {
+      "n": 126,
+      "agent": 62,
+      "step": 36,
+      "joint": 33,
+      "step_accuracy": 0.2857142857142857
+    },
+    "Hand-Crafted": {
+      "n": 58,
+      "agent": 37,
+      "step": 10,
+      "joint": 8,
+      "step_accuracy": 0.1724137931034483
+    }
+  },
+  "error_audit": {
+    "Algorithm-Generated": {
+      "n": 126,
+      "label_step_speaker_mismatch": 3,
+      "agent_wrong_step_wrong": 61,
+      "agent_right_step_wrong": 29,
+      "agent_wrong_step_right": 3,
+      "agent_right_step_right": 33,
+      "trace_length_bands": {
+        "6-10": 121,
+        "1-5": 5
+      },
+      "step_errors_by_length": {
+        "6-10": 89,
+        "1-5": 1
+      },
+      "agent_errors_by_length": {
+        "6-10": 63,
+        "1-5": 1
+      },
+      "example_agent_right_step_wrong": [
+        "Algorithm-Generated/101.json",
+        "Algorithm-Generated/11.json",
+        "Algorithm-Generated/111.json"
+      ]
+    },
+    "Hand-Crafted": {
+      "n": 58,
+      "label_step_speaker_mismatch": 16,
+      "agent_wrong_step_wrong": 19,
+      "agent_right_step_wrong": 29,
+      "agent_wrong_step_right": 2,
+      "agent_right_step_right": 8,
+      "trace_length_bands": {
+        "11+": 39,
+        "6-10": 13,
+        "1-5": 6
+      },
+      "step_errors_by_length": {
+        "11+": 33,
+        "6-10": 11,
+        "1-5": 4
+      },
+      "agent_errors_by_length": {
+        "11+": 16,
+        "6-10": 3,
+        "1-5": 2
+      },
+      "example_agent_right_step_wrong": [
+        "Hand-Crafted/1.json",
+        "Hand-Crafted/11.json",
+        "Hand-Crafted/13.json"
+      ]
+    }
+  },
+  "paired_step_gain": 0,
+  "paired_step_loss": 0,
+  "paired_step_exact_p_value": 1.0,
+  "interpretation": "Alpha was selected using saved external question-group out-of-fold predictions. The original Who&When test was already inspected during project development; this result is exploratory."
+}

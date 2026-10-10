@@ -1,5 +1,7 @@
 # AgentDiag v2
 
+See [published versions and evidence](PUBLISHED_VERSIONS.md) for the current and previous snapshot links, actual accuracy comparison, graphs and updated PDF. The publication keeps the selected model and evidence while omitting large intermediate candidate prediction logs.
+
 An independent implementation of the **multi-agent LLM failure attribution** scope in the PR presentation. The previous `phase*.py` scripts and outputs are not imported or reused.
 
 This version analyzes saved Who&When execution traces. It does not install or launch the original benchmark agents; the upstream benchmark authors ran systems to collect failures and then evaluated attribution methods on the saved logs. AgentDiag v2 has not been evaluated on live or multimodal agent inputs.
@@ -45,7 +47,24 @@ Machine-readable files and the reliability diagram sit beside each report. A fre
 
 The single-trace command now includes a `review_packet`: ranked agents, calibrated probabilities, the two-agent shortlist, message-indexed excerpts for model-selected flags, and the change in each candidate's probability when its own evidence is masked. This change measures **model sensitivity**, not a real-world causal effect. A warning accompanies the HMM timeline because its held-out early-warning performance was poor.
 
-See [RESEARCH_UPGRADE.md](RESEARCH_UPGRADE.md) for the paper comparison, failed accuracy experiments, measured shortlist coverage, and remaining gaps. The new semantic and lexical rankers are not used for prediction because they did not reliably outperform the Bayesian network.
+See [RESEARCH_UPGRADE.md](RESEARCH_UPGRADE.md) for the earlier paper comparison, failed accuracy experiments, shortlist coverage, and remaining gaps. The earlier standalone rankers did not reliably outperform the Bayesian network. The contextual experiment below evaluates a separate model for agent and step attribution.
+
+## Contextual accuracy upgrade
+
+The [checked contextual report](contextual_upgrade/Contextual_Report.md) records **73/126 (57.9%) Algorithm-Generated agents** and **42/126 (33.3%) exact steps**, compared with the previous **62/126 (49.2%)** and **36/126 (28.6%)**. This is a numerical improvement over the older Who&When GPT-4o reported scores, but it remains below AgenTracer and below the requested 60%/35% targets. The original benchmark was inspected during development; this is an exploratory result, not an independent paper-matched win.
+
+Agent prediction combines 50% of the old model's probabilities, 25% from a new contextual lexical model, and 25% from a task-aware temporal neural ensemble. Step prediction combines 25% old and 75% contextual lexical probabilities. All model settings and blends were chosen on external question-group validation before this round's original predictions were scored. The neural encoder is pinned Qwen3-Embedding-0.6B and runs locally. Thirty neural fold fits, two lexical settings and their blends are saved with selection provenance and per-trace outputs.
+
+Use the new predictor for Algorithm-Generated traces:
+
+```powershell
+python -m agentdiag_v2.predict_contextual 'agentdiag_v2/data/Who&When/Algorithm-Generated/1.json'
+python -m agentdiag_v2.verify_contextual
+```
+
+Keep `predict_step.py` for Hand-Crafted traces: the new combined model kept 37/58 agent matches but reduced exact steps from 10/58 to 8/58. A subsequent agreement experiment improved external validation but lowered original Algorithm-Generated agents to 70/126; it was retained as an experiment rather than adopted. The Bayesian inference and temporal reports remain separate features, and new model probabilities are uncalibrated.
+
+Install optional dependencies with `pip install -r agentdiag_v2/requirements-contextual.txt`. For this Windows GPU run, PyTorch 2.8.0 was installed from the official CUDA 12.6 wheel index. To reproduce, obtain the pinned StepFinder source, then run `python -m agentdiag_v2.contextual_upgrade --phase PHASE --stepfinder-data PATH --cache CACHE` for `sparse`, `encode`, `neural`, `select`, `train`, and `evaluate`, in that order. The cache defaults to a sibling `agentdiag-model-cache` folder and stores large encoder assets separately from the repository. The source, input budgets and hardware limits are described in [Method_Comparison.md](contextual_upgrade/Method_Comparison.md). The earlier project-review PDF predates this upgrade; use this report for the latest accuracy figures.
 
 Run `python3 agentdiag_v2/accuracy_study.py` to regenerate the [91-trace grouped accuracy comparison](accuracy_study/Accuracy_Study.md). Its per-trace predictions are saved beside that report.
 
@@ -65,7 +84,7 @@ To retrain and reevaluate, obtain the StepFinder repository at commit `48d71c709
 python3 agentdiag_v2/benchmark_step.py --stepfinder-data /path/to/StepFinder/data
 ```
 
-The audited question hashes and filtering method are in `data/stepfinder_safe_questions.json`. The final evaluation uses all 184 original Who&When traces with strict agent-name and raw-step matching. This is a research comparison, not a clean untouched holdout: model choices and the benchmark have been inspected during development. The official Who&When Pro repository lists its full benchmark release as pending, so this project does not claim a Who&When Pro score.
+The audited question hashes and filtering method are in `data/stepfinder_safe_questions.json`. The final evaluation uses all 184 original Who&When traces with strict agent-name and raw-step matching. This is a research comparison, not a clean untouched holdout: model choices and the benchmark have been inspected during development. Who&When Pro now provides an evaluation harness and dataset download, but this project has not been evaluated on its distinct text/image/video benchmark and does not claim a Pro score.
 
 ## Improved four-agent predictor
 
@@ -81,9 +100,17 @@ python3 agentdiag_v2/predict_hybrid.py 'agentdiag_v2/data/Who&When/Algorithm-Gen
 
 Read [BENCHMARK_STATUS.md](BENCHMARK_STATUS.md) for a direct comparison with the older Who&When paper, AgenTracer, and Who&When Pro. Run `python3 agentdiag_v2/verify_upgrade.py` to recheck both upgrade result files.
 
+## Windows migration and accuracy audit (October 2026)
+
+The Windows clone at `S:/pr/pr-project` was compared with the local upstream Who&When folder. The 184 original JSON records parse identically. A saved Linux-only phase manifest was regenerated with portable forward-slash relative paths. The local [recovery and accuracy plan](docs/superpowers/plans/2026-10-10-agentdiag-recovery-and-accuracy.md) records the sequence and acceptance checks.
+
+Three further local attempts are preserved in [accuracy_push](accuracy_push/): agent-aware step selection, adding original training traces to the external model, and separate models for each trace subset. Their validation results selected the existing model every time. A separate [released-scorer audit](accuracy_push/Paper_Scorer_Audit.md) shows why permissive step-string matching can inflate a comparison. The full audit and exact scores are in [BENCHMARK_STATUS.md](BENCHMARK_STATUS.md). No accuracy gain from this round is claimed.
+
+To reproduce those experiments, obtain StepFinder at commit `48d71c7090adca3667a31b043a78484f407b4a2f` outside this project, then run `python -m agentdiag_v2.accuracy_push.step_consistency --stepfinder-data PATH`, `python -m agentdiag_v2.accuracy_push.domain_adaptation --stepfinder-data PATH`, and `python -m agentdiag_v2.accuracy_push.subset_specialist --stepfinder-data PATH` from the repository root. These scripts use local data and write reports under `agentdiag_v2/accuracy_push/`.
+
 To continue the research in another session, start with [ACCURACY_PUSH_PROMPT.md](ACCURACY_PUSH_PROMPT.md). It records the current models, scores, benchmark gaps, and the next evaluation steps.
 
-For a simple-English project-review guide with a file-by-file explanation, result comparisons, limitations, commands, and sample viva answers, open [AgentDiag_v2_Project_Review_Guide.pdf](AgentDiag_v2_Project_Review_Guide.pdf). Rebuild it with `python3 agentdiag_v2/create_project_review_pdf.py` from the repository root.
+For the latest simple-English project-review guide, open [the updated October PDF](output/pdf/AgentDiag_v2_Updated_Project_Review_Guide.pdf). It covers the development history, actual previous/current benchmark results, all 26 result figures, architecture changes, evidence files, 391-file inventory and viva answers. The PDF validation manifest records number checks and rendering inspection. Rebuild it on this Windows workspace with `python agentdiag_v2/create_updated_review_pdf.py`. The earlier [September guide](AgentDiag_v2_Project_Review_Guide.pdf) remains preserved as historical documentation.
 
 ## Model and evaluation protocol
 
